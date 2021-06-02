@@ -70,6 +70,10 @@ const Header = () => {
     // references are now sync'd and can be accessed.
   }
 
+  const openOrClose = (isOpen) => {
+    isOpen ? closeModal() : openModal();
+  };
+
   function closeModal() {
     setIsOpen(false);
   }
@@ -81,7 +85,10 @@ const Header = () => {
             My<span className={classes.colorText}>Island.</span>
           </h1>
           <IconButton>
-            <SortIcon className={classes.icon} onClick={openModal} />
+            <SortIcon
+              className={classes.icon}
+              onClick={() => openOrClose(modalIsOpen)}
+            />
             <Modal
               isOpen={modalIsOpen}
               onAfterOpen={afterOpenModal}
