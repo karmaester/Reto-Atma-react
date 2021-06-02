@@ -5,6 +5,7 @@ import SortIcon from "@material-ui/icons/Sort";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Link as Scroll } from "react-scroll";
 import Modal from "react-modal";
+import Logo from "../images/logo.png";
 
 const customStyles = {
   content: {
@@ -26,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     height: "100vh",
   },
+  logo: {
+    height: "3rem",
+  },
   appbar: {
     background: "none",
   },
@@ -33,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     width: "80%",
     margin: "0 auto",
   },
-  appbarTitle: {
+  logoContainer: {
     flexGrow: "1",
   },
   icon: {
@@ -41,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "2.2rem",
   },
   colorText: {
-    color: "#5AFF3D",
+    color: "rgb(250, 221, 92)",
   },
   container: {
     textAlign: "center",
@@ -51,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "4.5rem",
   },
   goDown: {
-    color: "#5AFF3D",
+    color: "rgb(250, 221, 92)",
     fontSize: "4rem",
   },
 }));
@@ -62,9 +66,9 @@ const Header = () => {
     setChecked(true);
   }, []);
   const [modalIsOpen, setIsOpen] = React.useState(false);
-  function openModal() {
+  const openModal = () => {
     setIsOpen(true);
-  }
+  };
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
@@ -74,31 +78,31 @@ const Header = () => {
     isOpen ? closeModal() : openModal();
   };
 
-  function closeModal() {
+  const closeModal = () => {
     setIsOpen(false);
-  }
+  };
   return (
     <div className={classes.root} id="header">
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
-          <h1 className={classes.appbarTitle}>
-            My<span className={classes.colorText}>Island.</span>
-          </h1>
+          <div className={classes.logoContainer}>
+            <img className={classes.logo} src={Logo} alt="Logo RetoAtma" />
+          </div>
           <IconButton>
             <SortIcon
               className={classes.icon}
               onClick={() => openOrClose(modalIsOpen)}
             />
-            <Modal
-              isOpen={modalIsOpen}
-              onAfterOpen={afterOpenModal}
-              onRequestClose={closeModal}
-              style={customStyles}
-              contentLabel="Example Modal"
-            >
-              <button onClick={closeModal}>close</button>
-            </Modal>
           </IconButton>
+          <Modal
+            isOpen={modalIsOpen}
+            onAfterOpen={afterOpenModal}
+            onRequestClose={closeModal}
+            style={customStyles}
+            contentLabel="Example Modal"
+          >
+            <button onClick={closeModal}>close</button>
+          </Modal>
         </Toolbar>
       </AppBar>
       <Collapse
@@ -108,8 +112,8 @@ const Header = () => {
       >
         <div className={classes.container}>
           <h1 className={classes.title}>
-            Welcome to <br /> My
-            <span className={classes.colorText}> Island.</span>
+            Este es el <br /> Reto
+            <span className={classes.colorText}> Atma.</span>
           </h1>
           <Scroll to="place-to-visit">
             <IconButton>
