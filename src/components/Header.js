@@ -3,6 +3,21 @@ import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Collapse, IconButton, Toolbar } from "@material-ui/core";
 import SortIcon from "@material-ui/icons/Sort";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Link as Scroll } from "react-scroll";
+import Modal from "react-modal";
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+};
+
+Modal.setAppElement("#root");
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,6 +61,18 @@ const Header = () => {
   useEffect(() => {
     setChecked(true);
   }, []);
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
   return (
     <div className={classes.root} id="header">
       <AppBar className={classes.appbar} elevation={0}>
@@ -54,7 +81,16 @@ const Header = () => {
             My<span className={classes.colorText}>Island.</span>
           </h1>
           <IconButton>
-            <SortIcon className={classes.icon} />
+            <SortIcon className={classes.icon} onClick={openModal} />
+            <Modal
+              isOpen={modalIsOpen}
+              onAfterOpen={afterOpenModal}
+              onRequestClose={closeModal}
+              style={customStyles}
+              contentLabel="Example Modal"
+            >
+              <button onClick={closeModal}>close</button>
+            </Modal>
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -68,9 +104,11 @@ const Header = () => {
             Welcome to <br /> My
             <span className={classes.colorText}> Island.</span>
           </h1>
-          <IconButton>
-            <ExpandMoreIcon className={classes.goDown} />
-          </IconButton>
+          <Scroll to="place-to-visit">
+            <IconButton>
+              <ExpandMoreIcon className={classes.goDown} />
+            </IconButton>
+          </Scroll>
         </div>
       </Collapse>
     </div>
