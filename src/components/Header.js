@@ -12,15 +12,6 @@ import customStyles from "../static/modalStyles";
 Modal.setAppElement("#root");
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100vh",
-  },
-  logo: {
-    height: "3rem",
-  },
   appbar: {
     background: "rgba(255, 255, 255, 0.46)",
     zIndex: "1",
@@ -28,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   appbarWrapper: {
     width: "80%",
     margin: "0 auto",
+    padding: "1rem",
   },
   logoContainer: {
     flexGrow: "1",
@@ -41,11 +33,6 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     textAlign: "center",
-  },
-  title: {
-    color: "#fff",
-    fontSize: "4.5rem",
-    textShadow: "-4px 3px 0 #000",
   },
   goDown: {
     color: "rgb(250, 221, 92)",
@@ -75,11 +62,11 @@ const Header = () => {
     setIsOpen(false);
   };
   return (
-    <div className={classes.root} id="header">
+    <div className="root" id="header">
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
           <div className={classes.logoContainer}>
-            <img className={classes.logo} src={Logo} alt="Logo RetoAtma" />
+            <img className="logo" src={Logo} alt="Logo RetoAtma" />
           </div>
           <IconButton onClick={() => openOrClose(modalIsOpen)}>
             <SortIcon className={classes.icon} />
@@ -109,7 +96,7 @@ const Header = () => {
         collapsedHeight={50}
       >
         <div className={classes.container}>
-          <h1 className={classes.title}>
+          <h1 className="title">
             Baja de peso <br /> y transforma tu
             <span className={classes.colorText}> vida.</span>
           </h1>
