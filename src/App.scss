@@ -1,14 +1,35 @@
 .App {
   font-family: "Roboto", sans-serif;
-  background-color: rgba(255, 255, 255, 0.26);
 }
 
-.darken {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.137);
-  z-index: -1;
+.modal-exit {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  color: rgb(250, 221, 92);
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  outline: none;
+
+  &:hover {
+    color: darken($color: rgb(250, 221, 92), $amount: 10);
+    transform: scale(1.5);
+    transition: ease-in 0.2s;
+  }
+}
+
+.modal-menu {
+  list-style: none;
+  padding: 1rem;
+
+  li {
+    padding: 1.5rem;
+    font-size: 2rem;
+    &:hover {
+      color: darken($color: rgb(250, 221, 92), $amount: 10);
+    }
+  }
 }

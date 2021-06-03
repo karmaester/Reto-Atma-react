@@ -3,9 +3,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Collapse, IconButton, Toolbar } from "@material-ui/core";
 import SortIcon from "@material-ui/icons/Sort";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import CancelIcon from "@material-ui/icons/Cancel";
 import { Link as Scroll } from "react-scroll";
 import Modal from "react-modal";
 import Logo from "../images/logo.png";
+import customStyles from "../static/modalStyles";
 
 Modal.setAppElement("#root");
 
@@ -18,10 +20,10 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     height: "3rem",
-    zIndex: "100",
   },
   appbar: {
     background: "rgba(255, 255, 255, 0.46)",
+    zIndex: "1",
   },
   appbarWrapper: {
     width: "80%",
@@ -48,17 +50,6 @@ const useStyles = makeStyles((theme) => ({
   goDown: {
     color: "rgb(250, 221, 92)",
     fontSize: "4rem",
-  },
-  modalContent: {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      height: "500px",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-    },
   },
 }));
 const Header = () => {
@@ -97,10 +88,18 @@ const Header = () => {
             isOpen={modalIsOpen}
             onAfterOpen={afterOpenModal}
             onRequestClose={closeModal}
-            style={classes.modalContent.content}
+            style={customStyles}
             contentLabel="Example Modal"
           >
-            <button onClick={closeModal}>close</button>
+            <button onClick={closeModal} className="modal-exit">
+              <CancelIcon />
+            </button>
+            <ul className="modal-menu">
+              <li>Solicitar consulta médica</li>
+              <li>Comprar curso</li>
+              <li>Blog</li>
+              <li>Quienes somos</li>
+            </ul>
           </Modal>
         </Toolbar>
       </AppBar>
