@@ -7,17 +7,6 @@ import { Link as Scroll } from "react-scroll";
 import Modal from "react-modal";
 import Logo from "../images/logo.png";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
-};
-
 Modal.setAppElement("#root");
 
 const useStyles = makeStyles((theme) => ({
@@ -29,9 +18,10 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     height: "3rem",
+    zIndex: "100",
   },
   appbar: {
-    background: "none",
+    background: "rgba(255, 255, 255, 0.46)",
   },
   appbarWrapper: {
     width: "80%",
@@ -41,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: "1",
   },
   icon: {
-    color: "#fff",
+    color: "#000",
     fontSize: "2.2rem",
   },
   colorText: {
@@ -53,10 +43,22 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: "#fff",
     fontSize: "4.5rem",
+    textShadow: "-4px 3px 0 #000",
   },
   goDown: {
     color: "rgb(250, 221, 92)",
     fontSize: "4rem",
+  },
+  modalContent: {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      height: "500px",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
   },
 }));
 const Header = () => {
@@ -88,17 +90,14 @@ const Header = () => {
           <div className={classes.logoContainer}>
             <img className={classes.logo} src={Logo} alt="Logo RetoAtma" />
           </div>
-          <IconButton>
-            <SortIcon
-              className={classes.icon}
-              onClick={() => openOrClose(modalIsOpen)}
-            />
+          <IconButton onClick={() => openOrClose(modalIsOpen)}>
+            <SortIcon className={classes.icon} />
           </IconButton>
           <Modal
             isOpen={modalIsOpen}
             onAfterOpen={afterOpenModal}
             onRequestClose={closeModal}
-            style={customStyles}
+            style={classes.modalContent.content}
             contentLabel="Example Modal"
           >
             <button onClick={closeModal}>close</button>
@@ -112,8 +111,8 @@ const Header = () => {
       >
         <div className={classes.container}>
           <h1 className={classes.title}>
-            Este es el <br /> Reto
-            <span className={classes.colorText}> Atma.</span>
+            Baja de peso <br /> y transforma tu
+            <span className={classes.colorText}> vida.</span>
           </h1>
           <Scroll to="place-to-visit">
             <IconButton>
