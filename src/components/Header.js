@@ -28,16 +28,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#000",
     fontSize: "2.2rem",
   },
-  colorText: {
-    color: "rgb(250, 221, 92)",
-  },
-  container: {
-    textAlign: "center",
-  },
-  goDown: {
-    color: "rgb(250, 221, 92)",
-    fontSize: "4rem",
-  },
 }));
 const Header = () => {
   const classes = useStyles();
@@ -95,14 +85,14 @@ const Header = () => {
         {...(checked ? { timeout: 1000 } : {})}
         collapsedHeight={50}
       >
-        <div className={classes.container}>
+        <div className="title-container">
           <h1 className="title">
             Baja de peso <br /> y transforma tu
-            <span className={classes.colorText}> vida.</span>
+            <span className="title-text"> vida.</span>
           </h1>
           <Scroll to="place-to-visit">
             <IconButton>
-              <ExpandMoreIcon className={classes.goDown} />
+              <ExpandMoreIcon className="go-down" />
             </IconButton>
           </Scroll>
         </div>
