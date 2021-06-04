@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Collapse, IconButton, Toolbar } from "@material-ui/core";
+import { AppBar, IconButton, Toolbar } from "@material-ui/core";
 import SortIcon from "@material-ui/icons/Sort";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import CancelIcon from "@material-ui/icons/Cancel";
-import { Link as Scroll } from "react-scroll";
 import Modal from "react-modal";
 import Logo from "../images/logo.png";
 import customStyles from "../static/modalStyles";
+import { Title } from "./Title";
 
 Modal.setAppElement("#root");
 
@@ -31,10 +30,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Header = () => {
   const classes = useStyles();
-  const [checked, setChecked] = useState(false);
-  useEffect(() => {
-    setChecked(true);
-  }, []);
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const openModal = () => {
     setIsOpen(true);
@@ -80,23 +75,7 @@ const Header = () => {
           </Modal>
         </Toolbar>
       </AppBar>
-      <Collapse
-        in={checked}
-        {...(checked ? { timeout: 1000 } : {})}
-        collapsedHeight={50}
-      >
-        <div className="title-container">
-          <h1 className="title">
-            Baja de peso <br /> y transforma tu
-            <span className="title-text"> vida.</span>
-          </h1>
-          <Scroll to="place-to-visit">
-            <IconButton>
-              <ExpandMoreIcon className="go-down" />
-            </IconButton>
-          </Scroll>
-        </div>
-      </Collapse>
+      <Title />
     </div>
   );
 };
