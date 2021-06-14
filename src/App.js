@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import axios from "axios";
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
+import Appointement from "./components/Appointment";
 
 export default class App extends Component {
   constructor() {
@@ -82,6 +83,16 @@ export default class App extends Component {
               path={"/dashboard"}
               render={(props) => (
                 <Dashboard
+                  {...props}
+                  loggedInStatus={this.state.loggedStatus}
+                />
+              )}
+            />
+            <Route
+              exact
+              path={"/consulta"}
+              render={(props) => (
+                <Appointement
                   {...props}
                   loggedInStatus={this.state.loggedStatus}
                 />

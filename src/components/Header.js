@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, IconButton, Toolbar } from "@material-ui/core";
 import SortIcon from "@material-ui/icons/Sort";
@@ -67,10 +68,21 @@ const Header = () => {
               <CancelIcon />
             </button>
             <ul className="modal-menu">
-              <li>Solicitar consulta médica</li>
-              <li>Comprar curso</li>
-              <li>Blog</li>
-              <li>Quienes somos</li>
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+              <li>
+                <Link to="/consulta">Solicitar consulta médica</Link>
+              </li>
+              <li>
+                <Link to="/dashboard">Comprar curso</Link>
+              </li>
+              <li>
+                <Link to="/dashboard">Blog</Link>
+              </li>
+              <li>
+                <Link to="/dashboard">Quienes somos</Link>
+              </li>
             </ul>
           </Modal>
         </Toolbar>
