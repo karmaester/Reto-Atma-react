@@ -1,7 +1,16 @@
-import React from "react";
+import { CssBaseline } from "@material-ui/core";
+import Header from "./Header";
+import useStyles from "../static/bgStyles";
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  const classes = useStyles();
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+      <Header />
+      {/* <h1>Dashboard</h1> */}
+    </div>
+  );
 };
 
 export default Dashboard;

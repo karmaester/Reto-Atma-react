@@ -2,6 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
 import Header from "./Header";
 import PlaceToVisit from "./PlaceToVisit";
+import { Title } from "./Title";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,6 +19,7 @@ const Home = () => {
     <div className={classes.root}>
       <CssBaseline />
       <Header />
+      <Title />
       <PlaceToVisit />
     </div>
   );

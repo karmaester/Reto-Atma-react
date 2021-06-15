@@ -1,16 +1,6 @@
-import { makeStyles } from "@material-ui/core/styles";
 import { CssBaseline } from "@material-ui/core";
 import Header from "./Header";
-import PlaceToVisit from "./PlaceToVisit";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    minHeight: "100vh",
-    backgroundImage: `url(${process.env.PUBLIC_URL + "/assets/bg.jpg"})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-  },
-}));
+import useStyles from "../static/bgStyles";
 
 const Appointement = () => {
   const classes = useStyles();
@@ -18,6 +8,7 @@ const Appointement = () => {
     <div className={classes.root}>
       <CssBaseline />
       <Header />
+      {/* <h1>Solicitar cita</h1> */}
     </div>
   );
 };

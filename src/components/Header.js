@@ -7,7 +7,6 @@ import CancelIcon from "@material-ui/icons/Cancel";
 import Modal from "react-modal";
 import Logo from "../images/logo.png";
 import customStyles from "../static/modalStyles";
-import { Title } from "./Title";
 
 Modal.setAppElement("#root");
 
@@ -48,11 +47,13 @@ const Header = () => {
     setIsOpen(false);
   };
   return (
-    <div className="root" id="header">
+    <div id="header">
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
           <div className={classes.logoContainer}>
-            <img className="logo" src={Logo} alt="Logo RetoAtma" />
+            <Link to="/">
+              <img className="logo" src={Logo} alt="Logo RetoAtma" />
+            </Link>
           </div>
           <IconButton onClick={() => openOrClose(modalIsOpen)}>
             <SortIcon className={classes.icon} />
@@ -87,7 +88,6 @@ const Header = () => {
           </Modal>
         </Toolbar>
       </AppBar>
-      <Title />
     </div>
   );
 };

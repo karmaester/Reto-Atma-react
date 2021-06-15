@@ -9,7 +9,7 @@ export const Title = () => {
     setChecked(true);
   }, []);
   return (
-    <div>
+    <div className="title-spacer">
       <Collapse
         in={checked}
         {...(checked ? { timeout: 1000 } : {})}
