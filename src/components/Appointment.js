@@ -1,6 +1,7 @@
 import { CssBaseline } from "@material-ui/core";
 import Header from "./Header";
 import useStyles from "../static/bgStyles";
+import UserForm from "./UserForm";
 
 const Appointement = () => {
   const classes = useStyles();
@@ -9,6 +10,7 @@ const Appointement = () => {
       <CssBaseline />
       <Header />
       <h1 className="title-spacer m-0">Solicitar cita</h1>
+      <UserForm />
     </div>
   );
 };
