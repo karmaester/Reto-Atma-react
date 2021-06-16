@@ -76,13 +76,13 @@ const Header = () => {
                 <Link to="/consulta">Solicitar consulta médica</Link>
               </li>
               <li>
-                <Link to="/dashboard">Comprar curso</Link>
+                <Link to="/curso">Comprar curso</Link>
               </li>
               <li>
-                <Link to="/dashboard">Blog</Link>
+                <Link to="/blog">Blog</Link>
               </li>
               <li>
-                <Link to="/dashboard">Quienes somos</Link>
+                <Link to="/quienes-somos">Quienes somos</Link>
               </li>
             </ul>
           </Modal>

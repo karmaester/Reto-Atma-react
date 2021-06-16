@@ -8,7 +8,7 @@ const Appointement = () => {
     <div className={classes.root}>
       <CssBaseline />
       <Header />
-      {/* <h1>Solicitar cita</h1> */}
+      <h1 className="title-spacer m-0">Solicitar cita</h1>
     </div>
   );
 };

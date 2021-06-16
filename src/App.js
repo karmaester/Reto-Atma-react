@@ -5,6 +5,9 @@ import axios from "axios";
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
 import Appointement from "./components/Appointment";
+import Blog from "./components/Blog";
+import Course from "./components/Course";
+import WhoWeAre from "./components/WhoWeAre";
 
 export default class App extends Component {
   constructor() {
@@ -96,6 +99,27 @@ export default class App extends Component {
                   {...props}
                   loggedInStatus={this.state.loggedStatus}
                 />
+              )}
+            />
+            <Route
+              exact
+              path={"/curso"}
+              render={(props) => (
+                <Course {...props} loggedInStatus={this.state.loggedStatus} />
+              )}
+            />
+            <Route
+              exact
+              path={"/blog"}
+              render={(props) => (
+                <Blog {...props} loggedInStatus={this.state.loggedStatus} />
+              )}
+            />
+            <Route
+              exact
+              path={"/quienes-somos"}
+              render={(props) => (
+                <WhoWeAre {...props} loggedInStatus={this.state.loggedStatus} />
               )}
             />
           </Switch>
