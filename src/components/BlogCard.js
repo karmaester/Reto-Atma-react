@@ -28,6 +28,9 @@ const useStyles = makeStyles({
     fontSize: "1.1rem",
     color: "#ddd",
   },
+  action: {
+    color: "rgb(250, 221, 92)",
+  },
 });
 
 export default function ImgMediaCard({ article }) {
@@ -63,8 +66,12 @@ export default function ImgMediaCard({ article }) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small">Compartir</Button>
-        <Button size="small">Ver articulo completo</Button>
+        <Button size="small" className={classes.action}>
+          Compartir
+        </Button>
+        <Button size="small" className={classes.action}>
+          Ver articulo completo
+        </Button>
       </CardActions>
     </Card>
   );

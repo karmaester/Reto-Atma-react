@@ -10,7 +10,7 @@ const Blog = () => {
     <div className={classes.root}>
       <CssBaseline />
       <Header />
-      <div className="title-spacer m-0 column">
+      <div className="blog-spacer m-0 column">
         <BlogCard article={articles[0]} />
         <BlogCard article={articles[1]} />
         <BlogCard article={articles[2]} />
