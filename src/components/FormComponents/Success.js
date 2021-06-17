@@ -1,11 +1,13 @@
 import React from "react";
+import DoneOutlineIcon from "@material-ui/icons/DoneOutline";
 
-const Success = () => {
+const Success = ({ name }) => {
   return (
     <div className="rounded">
-      <h2>
-        Ha solicitado atención para agendar su cita, será contactado en la mayor
-        brevedad posible
+      <DoneOutlineIcon className="success-icon" />
+      <h2 className="success-message">
+        Gracias {name}, ha solicitado atención para agendar su cita, será
+        contactad@ en la mayor brevedad posible
       </h2>
     </div>
   );

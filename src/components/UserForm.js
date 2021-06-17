@@ -56,7 +56,7 @@ class UserForm extends Component {
           />
         );
       case 3:
-        return <Success />;
+        return <Success name={values.firstName} />;
       default:
         return (
           <FormUserDetails
