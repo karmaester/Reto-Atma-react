@@ -9,8 +9,9 @@ const Appointement = () => {
     <div className={classes.root}>
       <CssBaseline />
       <Header />
-      <h1 className="title-spacer m-0">Solicitar cita</h1>
-      <UserForm />
+      <div className="title-spacer m-0">
+        <UserForm />
+      </div>
     </div>
   );
 };

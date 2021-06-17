@@ -47,7 +47,7 @@ const Header = () => {
     setIsOpen(false);
   };
   return (
-    <div id="header">
+    <div id="header" className="z-10">
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}>
           <div className={classes.logoContainer}>

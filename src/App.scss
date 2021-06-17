@@ -2,6 +2,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
 .title-spacer {
   display: flex;
   justify-content: center;
@@ -74,4 +78,13 @@
   .title {
     font-size: 2.5rem;
   }
+}
+
+.rounded {
+  background-color: rgba(255, 255, 255, 0.46);
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 33px;
+  flex-direction: column;
 }
