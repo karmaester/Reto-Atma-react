@@ -3,7 +3,7 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import { List, ListItem, ListItemText } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
-const Confirm = ({ nextStep, prevStep, values }) => {
+const Confirm = ({ nextStep, prevStep, values, action }) => {
   const continueToConfirm = (e) => {
     e.preventDefault();
     nextStep();
@@ -14,29 +14,32 @@ const Confirm = ({ nextStep, prevStep, values }) => {
     prevStep();
   };
 
+  const buttonText =
+    action === "appointment" ? "Solicitar cita" : "Inscripción";
+
   return (
     <MuiThemeProvider>
       <>
         <div className="rounded">
           <List>
-            <listItem>
+            <ListItem>
               <ListItemText primary="Nombre" secondary={values.firstName} />
-            </listItem>
+            </ListItem>
             <br />
-            <listItem>
+            <ListItem>
               <ListItemText primary="Apellido" secondary={values.lastName} />
-            </listItem>
+            </ListItem>
             <br />
-            <listItem>
+            <ListItem>
               <ListItemText primary="Email" secondary={values.email} />
-            </listItem>
+            </ListItem>
             <br />
-            <listItem>
+            <ListItem>
               <ListItemText
                 primary="Número de teléfono"
                 secondary={values.phone}
               />
-            </listItem>
+            </ListItem>
             <br />
             <div className="buttonContainer">
               <Button className="mr-1" variant="contained" onClick={goBack}>
@@ -44,8 +47,7 @@ const Confirm = ({ nextStep, prevStep, values }) => {
                 Ir atrás{" "}
               </Button>
               <Button variant="contained" onClick={continueToConfirm}>
-                {" "}
-                Solicitar cita{" "}
+                {buttonText}
               </Button>
             </div>
           </List>

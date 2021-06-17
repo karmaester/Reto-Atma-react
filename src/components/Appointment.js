@@ -10,7 +10,7 @@ const Appointement = () => {
       <CssBaseline />
       <Header />
       <div className="title-spacer m-0">
-        <UserForm />
+        <UserForm action="appointment" />
       </div>
     </div>
   );

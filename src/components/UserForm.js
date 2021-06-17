@@ -53,6 +53,7 @@ class UserForm extends Component {
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             values={values}
+            action={this.props.action}
           />
         );
       case 3:
