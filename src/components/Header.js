@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, IconButton, Toolbar } from "@material-ui/core";
-import SortIcon from "@material-ui/icons/Sort";
-import CancelIcon from "@material-ui/icons/Cancel";
+import { AppBar, Toolbar } from "@material-ui/core";
 import Modal from "react-modal";
 import Logo from "../images/logo.png";
-import customStyles from "../static/modalStyles";
+import TransitionsModal from "./Modal";
 
 Modal.setAppElement("#root");
 
@@ -23,29 +21,9 @@ const useStyles = makeStyles((theme) => ({
   logoContainer: {
     flexGrow: "1",
   },
-  icon: {
-    color: "#000",
-    fontSize: "2.2rem",
-  },
 }));
 const Header = () => {
   const classes = useStyles();
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-  }
-
-  const openOrClose = (isOpen) => {
-    isOpen ? closeModal() : openModal();
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
   return (
     <div id="header" className="z-10">
       <AppBar className={classes.appbar} elevation={0}>
@@ -55,37 +33,7 @@ const Header = () => {
               <img className="logo" src={Logo} alt="Logo RetoAtma" />
             </Link>
           </div>
-          <IconButton onClick={() => openOrClose(modalIsOpen)}>
-            <SortIcon className={classes.icon} />
-          </IconButton>
-          <Modal
-            isOpen={modalIsOpen}
-            onAfterOpen={afterOpenModal}
-            onRequestClose={closeModal}
-            style={customStyles}
-            contentLabel="Example Modal"
-          >
-            <button onClick={closeModal} className="modal-exit">
-              <CancelIcon />
-            </button>
-            <ul className="modal-menu">
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li>
-              <li>
-                <Link to="/consulta">Solicitar consulta médica</Link>
-              </li>
-              <li>
-                <Link to="/curso">Comprar curso</Link>
-              </li>
-              <li>
-                <Link to="/blog">Blog</Link>
-              </li>
-              <li>
-                <Link to="/quienes-somos">Quienes somos</Link>
-              </li>
-            </ul>
-          </Modal>
+          <TransitionsModal />
         </Toolbar>
       </AppBar>
     </div>
