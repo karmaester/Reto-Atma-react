@@ -82,12 +82,6 @@
   }
 }
 
-@media (max-width: 600px) {
-  .title {
-    font-size: 2.5rem;
-  }
-}
-
 .rounded {
   background-color: rgba(255, 255, 255, 0.46);
   padding: 3rem;
@@ -118,4 +112,22 @@
 
 .column {
   flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.5rem !important;
+  }
+
+  .rounded {
+    margin-top: 1rem;
+    padding: 2rem;
+  }
+
+  .modal-menu {
+    li {
+      font-size: 1.5rem;
+      padding: 0.5rem;
+    }
+  }
 }
