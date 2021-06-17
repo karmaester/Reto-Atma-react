@@ -87,4 +87,13 @@
   justify-content: center;
   border-radius: 33px;
   flex-direction: column;
+
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+
+    .mr-1 {
+      margin-right: 1rem;
+    }
+  }
 }

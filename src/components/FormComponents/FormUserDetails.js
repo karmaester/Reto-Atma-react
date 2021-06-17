@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
 
 const FormUserDetails = ({ nextStep, values, handleChange }) => {
-  const continueA = (e) => {
+  const continueToConfirm = (e) => {
     e.preventDefault();
     nextStep();
   };
@@ -42,7 +42,11 @@ const FormUserDetails = ({ nextStep, values, handleChange }) => {
             defaultValue={values.phone}
           />
           <br />
-          <Button variant="contained" startIcon={<SaveIcon />}>
+          <Button
+            variant="contained"
+            startIcon={<SaveIcon />}
+            onClick={continueToConfirm}
+          >
             {" "}
             Guardar{" "}
           </Button>
