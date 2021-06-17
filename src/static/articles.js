@@ -8,7 +8,7 @@ const articles = [
   {
     title: "Articulo 2",
     description: "Segundo articulo",
-    imageUrl: process.env.PUBLIC_URL + "/assets/time.png",
+    imageUrl: process.env.PUBLIC_URL + "/assets/time.jpg",
     time: 1500,
   },
   {
@@ -20,7 +20,7 @@ const articles = [
   {
     title: "Articulo 4",
     description: "Cuarto articulo",
-    imageUrl: process.env.PUBLIC_URL + "/assets/happy.png",
+    imageUrl: process.env.PUBLIC_URL + "/assets/happy.jpg",
     time: 1500,
   },
 ];
