@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ImgMediaCard({ article }) {
+export default function ImgMediaCard({ article, openArticle }) {
   const classes = useStyles();
 
   return (
@@ -69,7 +69,7 @@ export default function ImgMediaCard({ article }) {
         <Button size="small" className={classes.action}>
           Compartir
         </Button>
-        <Button size="small" className={classes.action}>
+        <Button size="small" className={classes.action} onClick={openArticle}>
           Ver articulo completo
         </Button>
       </CardActions>
