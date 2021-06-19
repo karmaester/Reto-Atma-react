@@ -17,8 +17,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 5rem;
   padding-bottom: 5rem;
+}
+
+.pt {
+  padding-top: 5rem;
 }
 
 .m-0 {
@@ -68,10 +71,15 @@
 .modal-menu {
   list-style: none;
   padding: 1rem;
+  // font-family: Nunito;
 
   li {
     padding: 1.5rem;
     font-size: 2rem;
+
+    &:hover {
+      background-color: rgba(240, 240, 240, 0.637);
+    }
     a {
       color: #000;
       text-decoration: none;
@@ -112,6 +120,11 @@
 
 .column {
   flex-direction: column;
+}
+
+.go-back {
+  padding-top: 7rem;
+  padding-left: 1.5rem;
 }
 
 @media (max-width: 600px) {

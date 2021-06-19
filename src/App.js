@@ -122,6 +122,13 @@ export default class App extends Component {
                 <WhoWeAre {...props} loggedInStatus={this.state.loggedStatus} />
               )}
             />
+            <Route
+              exact
+              path={"/registro"}
+              render={(props) => (
+                <SignUp {...props} loggedInStatus={this.state.loggedStatus} />
+              )}
+            />
           </Switch>
         </BrowserRouter>
       </div>

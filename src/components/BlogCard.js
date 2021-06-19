@@ -33,12 +33,12 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ImgMediaCard({ article, openArticle }) {
+export default function ImgMediaCard({ article, openArticle, isMain }) {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea onClick={openArticle}>
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
@@ -69,9 +69,13 @@ export default function ImgMediaCard({ article, openArticle }) {
         <Button size="small" className={classes.action}>
           Compartir
         </Button>
-        <Button size="small" className={classes.action} onClick={openArticle}>
-          Ver articulo completo
-        </Button>
+        {isMain ? (
+          <Button size="small" className={classes.action} onClick={openArticle}>
+            Ver articulo completo
+          </Button>
+        ) : (
+          ""
+        )}
       </CardActions>
     </Card>
   );
