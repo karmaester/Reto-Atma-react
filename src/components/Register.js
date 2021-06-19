@@ -14,20 +14,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
   },
 }));
-export default class SignUp extends Component {
-  constructor(props) {
-    super(props);
 
-    this.handelSuccessfulAuth = this.handelSuccessfulAuth.bind(this);
-    this.handleLogoutClick = this.handleLogoutClick.bind(this);
-  }
-
-  handelSuccessfulAuth(data) {
+const SignUp = (props) => {
+  const handelSuccessfulAuth = (data) => {
     this.props.handleLogin(data);
     this.props.history.push("/dashboard");
-  }
+  };
 
-  handleLogoutClick() {
+  const handleLogoutClick = () => {
     axios
       .delete("http://localhost:3001/logout", { withCredentials: true })
       .then((response) => {
@@ -36,22 +30,22 @@ export default class SignUp extends Component {
       .catch((error) => {
         console.log("logout error", error);
       });
-  }
+  };
 
-  render() {
-    const classes = useStyles;
-    return (
-      <div className={classes.root}>
-        <CssBaseline />
-        <Header />
-        <div className="title-spacer m-0 column">
-          <h1>Home</h1>
-          <h1>Status: {this.props.loggedInStatus}</h1>
-          <button onClick={() => this.handleLogoutClick()}>Logout</button>
-          <Registration handelSuccessfulAuth={this.handelSuccessfulAuth} />
-          <Login handelSuccessfulAuth={this.handelSuccessfulAuth} />
-        </div>
+  const classes = useStyles();
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+      <Header />
+      <div className="title-spacer m-0 column">
+        <h1>Home</h1>
+        <h1>Status: {props.loggedInStatus}</h1>
+        <button onClick={() => handleLogoutClick()}>Logout</button>
+        <Registration handelSuccessfulAuth={handelSuccessfulAuth} />
+        <Login handelSuccessfulAuth={handelSuccessfulAuth} />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default SignUp;
