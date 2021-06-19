@@ -62,6 +62,9 @@ export default function TransitionsModal() {
             </button>
             <ul className="modal-menu">
               <li>
+                <Link to="/registro">Registarme</Link>
+              </li>
+              <li>
                 <Link to="/dashboard">Dashboard</Link>
               </li>
               <li>

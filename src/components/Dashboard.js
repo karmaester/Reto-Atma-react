@@ -2,13 +2,16 @@ import { CssBaseline } from "@material-ui/core";
 import Header from "./Header";
 import useStyles from "../static/bgStyles";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <CssBaseline />
       <Header />
-      <h1 className="title-spacer m-0">Dashboard</h1>
+      <div className="title-spacer m-0 column">
+        <h1>Dashboard</h1>
+        <h1>Status: {props.loggedInStatus}</h1>
+      </div>
     </div>
   );
 };

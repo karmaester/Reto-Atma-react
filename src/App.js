@@ -8,6 +8,7 @@ import Appointement from "./components/Appointment";
 import Blog from "./components/Blog";
 import Course from "./components/Course";
 import WhoWeAre from "./components/WhoWeAre";
+import SignUp from "./components/Register";
 
 export default class App extends Component {
   constructor() {
