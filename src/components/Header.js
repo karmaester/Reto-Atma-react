@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: "1",
   },
 }));
-const Header = () => {
+const Header = (props) => {
   const classes = useStyles();
   return (
     <div id="header" className="z-10">
@@ -33,7 +33,7 @@ const Header = () => {
               <img className="logo" src={Logo} alt="Logo RetoAtma" />
             </Link>
           </div>
-          <TransitionsModal />
+          <TransitionsModal {...props} />
         </Toolbar>
       </AppBar>
     </div>

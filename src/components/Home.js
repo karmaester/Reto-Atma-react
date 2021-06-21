@@ -13,12 +13,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Home = () => {
+const Home = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Header />
+      <Header {...props} />
       <Title />
       <PlaceToVisit />
     </div>

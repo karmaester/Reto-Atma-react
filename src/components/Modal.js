@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TransitionsModal() {
+export default function TransitionsModal(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -36,6 +37,17 @@ export default function TransitionsModal() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleLogoutClick = () => {
+    axios
+      .delete("http://localhost:3001/logout", { withCredentials: true })
+      .then((response) => {
+        props.handleLogout();
+      })
+      .catch((error) => {
+        console.log("logout error", error);
+      });
   };
 
   return (
@@ -62,12 +74,6 @@ export default function TransitionsModal() {
             </button>
             <ul className="modal-menu">
               <li>
-                <Link to="/registro">Registarme</Link>
-              </li>
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li>
-              <li>
                 <Link to="/consulta">Solicitar consulta médica</Link>
               </li>
               <li>
@@ -79,6 +85,27 @@ export default function TransitionsModal() {
               <li>
                 <Link to="/quienes-somos">Quienes somos</Link>
               </li>
+              {props.loggedInStatus === "LOGGED_IN" ? (
+                <>
+                  <li>
+                    <Link to="/dashboard">Mis solicitudes</Link>
+                  </li>
+                  <li>
+                    <Link to="/" onClick={() => handleLogoutClick()}>
+                      Cerrar sesión
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/registro">Registarme</Link>
+                  </li>
+                  <li>
+                    <Link to="/registro">Ingresar</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </Fade>
