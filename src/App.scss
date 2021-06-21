@@ -77,9 +77,13 @@
     padding: 1.5rem;
     font-size: 2rem;
 
-    // &:hover {
-    //   background-color: rgba(240, 240, 240, 0.637);
-    // }
+    &:hover {
+      color: darken($color: rgb(250, 221, 92), $amount: 10);
+      background-color: rgba(240, 240, 240, 0.295);
+      transform: scale(1.1);
+      transition: ease-in-out 0.2s;
+    }
+
     a {
       color: #000;
       text-decoration: none;

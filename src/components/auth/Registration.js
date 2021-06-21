@@ -60,6 +60,7 @@ export default class Registration extends Component {
             <TextField
               label="Email"
               name="email"
+              type="email"
               placeholder="Email"
               value={this.state.email}
               onChange={this.handleChange}
@@ -69,6 +70,7 @@ export default class Registration extends Component {
             <TextField
               type="password"
               name="password"
+              label="password"
               placeholder="Password"
               value={this.state.password}
               onChange={this.handleChange}
@@ -78,6 +80,7 @@ export default class Registration extends Component {
             <TextField
               type="password"
               name="password_confirmation"
+              label="Password confirmation"
               placeholder="Password confirmation"
               value={this.state.password_confirmation}
               onChange={this.handleChange}
