@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = (props) => {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <CssBaseline />

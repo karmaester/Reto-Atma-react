@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignUp = (props) => {
+const LogIn = (props) => {
   const handelSuccessfulAuth = (data) => {
     props.handleLogin(data);
     props.history.push("/dashboard");
@@ -34,4 +34,4 @@ const SignUp = (props) => {
   );
 };
 
-export default SignUp;
+export default LogIn;

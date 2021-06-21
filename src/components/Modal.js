@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
+    borderRadius: "33px",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -102,7 +103,7 @@ export default function TransitionsModal(props) {
                     <Link to="/registro">Registarme</Link>
                   </li>
                   <li>
-                    <Link to="/registro">Ingresar</Link>
+                    <Link to="/ingresar">Ingresar</Link>
                   </li>
                 </>
               )}

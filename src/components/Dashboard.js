@@ -7,7 +7,7 @@ const Dashboard = (props) => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Header />
+      <Header {...props} />
       <div className="title-spacer m-0 column">
         <h1>Dashboard</h1>
         <h1>Status: {props.loggedInStatus}</h1>

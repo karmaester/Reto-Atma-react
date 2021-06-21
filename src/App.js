@@ -9,6 +9,7 @@ import Blog from "./components/Blog";
 import Course from "./components/Course";
 import WhoWeAre from "./components/WhoWeAre";
 import SignUp from "./components/Register";
+import LogIn from "./components/Login";
 
 export default class App extends Component {
   constructor() {
@@ -128,6 +129,13 @@ export default class App extends Component {
               path={"/registro"}
               render={(props) => (
                 <SignUp {...props} loggedInStatus={this.state.loggedStatus} />
+              )}
+            />
+            <Route
+              exact
+              path={"/ingresar"}
+              render={(props) => (
+                <LogIn {...props} loggedInStatus={this.state.loggedStatus} />
               )}
             />
           </Switch>

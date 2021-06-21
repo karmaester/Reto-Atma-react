@@ -6,7 +6,7 @@ import BlogCard from "./BlogCard";
 import articles from "../static/articles";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
-const Blog = () => {
+const Blog = (props) => {
   const [step, setStep] = useState(1);
   const classes = useStyles();
 
@@ -17,7 +17,7 @@ const Blog = () => {
       return (
         <div className={classes.root}>
           <CssBaseline />
-          <Header />
+          <Header {...props} />
           <div className={"blog-spacer m-0 column pt"}>
             <BlogCard
               article={articles[0]}
@@ -46,7 +46,7 @@ const Blog = () => {
       return (
         <div className={classes.root}>
           <CssBaseline />
-          <Header />
+          <Header {...props} />
           <div className="go-back">
             <Button variant="contained" onClick={() => setStep(1)}>
               <ArrowBackIcon />
@@ -61,7 +61,7 @@ const Blog = () => {
       return (
         <div className={classes.root}>
           <CssBaseline />
-          <Header />
+          <Header {...props} />
           <div className="go-back">
             <Button variant="contained" onClick={() => setStep(1)}>
               <ArrowBackIcon />
@@ -76,7 +76,7 @@ const Blog = () => {
       return (
         <div className={classes.root}>
           <CssBaseline />
-          <Header />
+          <Header {...props} />
           <div className="go-back">
             <Button variant="contained" onClick={() => setStep(1)}>
               <ArrowBackIcon />
@@ -91,7 +91,7 @@ const Blog = () => {
       return (
         <div className={classes.root}>
           <CssBaseline />
-          <Header />
+          <Header {...props} />
           <div className="go-back">
             <Button variant="contained" onClick={() => setStep(1)}>
               <ArrowBackIcon />
@@ -106,7 +106,7 @@ const Blog = () => {
       return (
         <div className={classes.root}>
           <CssBaseline />
-          <Header />
+          <Header {...props} />
           <div className="go-back">
             <Button variant="contained" onClick={() => setStep(1)}>
               <ArrowBackIcon />
