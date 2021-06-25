@@ -32,13 +32,13 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ImageCard({ place, checked, action }) {
+export default function ImageCard({ place, checked }) {
   const classes = useStyles();
 
   return (
     <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
       <Card className={classes.root}>
-        <CardActionArea href="/consulta">
+        <CardActionArea href={place.link}>
           <CardMedia
             className={classes.media}
             image={place.imageUrl}
@@ -64,7 +64,12 @@ export default function ImageCard({ place, checked, action }) {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" className="action-btn">
+          <Button
+            href={place.link}
+            size="large"
+            variant="contained"
+            className="action-btn"
+          >
             {place.action}
           </Button>
         </CardActions>
