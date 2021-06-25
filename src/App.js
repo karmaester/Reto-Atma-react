@@ -89,6 +89,7 @@ export default class App extends Component {
               render={(props) => (
                 <Dashboard
                   {...props}
+                  handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedStatus}
                 />
               )}
@@ -99,6 +100,7 @@ export default class App extends Component {
               render={(props) => (
                 <Appointement
                   {...props}
+                  handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedStatus}
                 />
               )}
@@ -107,35 +109,57 @@ export default class App extends Component {
               exact
               path={"/curso"}
               render={(props) => (
-                <Course {...props} loggedInStatus={this.state.loggedStatus} />
+                <Course
+                  {...props}
+                  handleLogout={this.handleLogout}
+                  loggedInStatus={this.state.loggedStatus}
+                />
               )}
             />
             <Route
               exact
               path={"/blog"}
               render={(props) => (
-                <Blog {...props} loggedInStatus={this.state.loggedStatus} />
+                <Blog
+                  {...props}
+                  handleLogout={this.handleLogout}
+                  loggedInStatus={this.state.loggedStatus}
+                />
               )}
             />
             <Route
               exact
               path={"/quienes-somos"}
               render={(props) => (
-                <WhoWeAre {...props} loggedInStatus={this.state.loggedStatus} />
+                <WhoWeAre
+                  {...props}
+                  handleLogout={this.handleLogout}
+                  loggedInStatus={this.state.loggedStatus}
+                />
               )}
             />
             <Route
               exact
               path={"/registro"}
               render={(props) => (
-                <SignUp {...props} loggedInStatus={this.state.loggedStatus} />
+                <SignUp
+                  {...props}
+                  handleLogout={this.handleLogout}
+                  handleLogin={this.handleLogin}
+                  loggedInStatus={this.state.loggedStatus}
+                />
               )}
             />
             <Route
               exact
               path={"/ingresar"}
               render={(props) => (
-                <LogIn {...props} loggedInStatus={this.state.loggedStatus} />
+                <LogIn
+                  {...props}
+                  handleLogout={this.handleLogout}
+                  handleLogin={this.handleLogin}
+                  loggedInStatus={this.state.loggedStatus}
+                />
               )}
             />
           </Switch>
