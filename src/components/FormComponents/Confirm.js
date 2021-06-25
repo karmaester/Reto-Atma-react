@@ -1,12 +1,30 @@
 import React from "react";
+import axios from "axios";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { List, ListItem, ListItemText } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
 const Confirm = ({ nextStep, prevStep, values, action }) => {
-  const continueToConfirm = (e) => {
-    e.preventDefault();
-    nextStep();
+  const handleSubmit = (event) => {
+    axios
+      .post("http://localhost:3001/requests", {
+        request: {
+          email: values.email,
+          name: values.firstName,
+          last_name: values.lastName,
+          phone: values.phone,
+        },
+      })
+      .then((response) => {
+        if (response.data.status === "created") {
+          nextStep();
+          console.log(response.data);
+        }
+      })
+      .catch((err) => {
+        console.log("registration error", err);
+      });
+    event.preventDefault();
   };
 
   const goBack = (e) => {
@@ -46,7 +64,7 @@ const Confirm = ({ nextStep, prevStep, values, action }) => {
                 {" "}
                 Ir atrás{" "}
               </Button>
-              <Button variant="contained" onClick={continueToConfirm}>
+              <Button variant="contained" onClick={handleSubmit}>
                 {buttonText}
               </Button>
             </div>
