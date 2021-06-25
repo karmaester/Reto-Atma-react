@@ -4,11 +4,11 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import { Collapse } from "@material-ui/core";
+import Slider from "react-slick";
 
 const useStyles = makeStyles({
   root: {
@@ -35,15 +35,35 @@ const useStyles = makeStyles({
 export default function ImageCard({ place, checked }) {
   const classes = useStyles();
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+  };
+
   return (
     <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
       <Card className={classes.root}>
         <CardActionArea href={place.link}>
-          <CardMedia
-            className={classes.media}
-            image={place.imageUrl}
-            title="Card"
-          />
+          <Slider {...settings}>
+            <div>
+              <CardMedia
+                className={classes.media}
+                image={place.imageUrl1}
+                title={place.title}
+              />
+            </div>
+            <div>
+              <CardMedia
+                className={classes.media}
+                image={place.imageUrl2}
+                title={place.title}
+              />
+            </div>
+          </Slider>
           <CardContent>
             <Typography
               gutterBottom
