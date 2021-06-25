@@ -12,6 +12,9 @@ export default class Registration extends Component {
       email: "",
       password: "",
       password_confirmation: "",
+      name: "",
+      last_name: "",
+      phone: "",
       registrationErrors: "",
     };
 
@@ -26,7 +29,8 @@ export default class Registration extends Component {
   }
 
   handleSubmit(event) {
-    const { email, password, password_confirmation } = this.state;
+    const { email, password, password_confirmation, name, last_name, phone } =
+      this.state;
 
     axios
       .post(
@@ -36,6 +40,9 @@ export default class Registration extends Component {
             email: email,
             password: password,
             password_confirmation: password_confirmation,
+            name: name,
+            last_name: last_name,
+            phone: phone,
           },
         },
         {
@@ -58,11 +65,38 @@ export default class Registration extends Component {
         <>
           <div className="rounded">
             <TextField
+              label="Nombres"
+              name="name"
+              placeholder="Nombres"
+              value={this.state.name}
+              onChange={this.handleChange}
+              required
+            />
+            <br />
+            <TextField
+              label="Apellidos"
+              name="last_name"
+              placeholder="Apellidos"
+              value={this.state.last_name}
+              onChange={this.handleChange}
+              required
+            />
+            <br />
+            <TextField
               label="Email"
               name="email"
               type="email"
               placeholder="Email"
               value={this.state.email}
+              onChange={this.handleChange}
+              required
+            />
+            <br />
+            <TextField
+              label="Teléfono"
+              name="phone"
+              placeholder="Teléfono"
+              value={this.state.phone}
               onChange={this.handleChange}
               required
             />
