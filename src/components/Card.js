@@ -1,8 +1,8 @@
-const Card = ({ appointment }) => {
+const Card = ({ item }) => {
   return (
     <div className="">
-      <h3>{appointment.name}</h3>
-      <p>{appointment.last_name}</p>
+      <h3>{item.name}</h3>
+      <p>{item.last_name}</p>
     </div>
   );
 };

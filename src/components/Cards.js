@@ -1,10 +1,10 @@
 import Card from "./Card";
 
-const Cards = ({ appointments }) => {
+const Cards = ({ data }) => {
   return (
     <>
-      {appointments.map((appointment, index) => (
-        <Card key={index} appointment={appointment} />
+      {data.map((item, index) => (
+        <Card key={index} item={item} />
       ))}
     </>
   );

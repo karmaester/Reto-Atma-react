@@ -13,6 +13,23 @@
   min-height: 100vh;
 }
 
+.aside {
+  width: 30%;
+  float: left;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  width: 70%;
+  float: right;
+}
+.flex {
+  display: flex;
+}
+
 .blog-spacer {
   display: flex;
   justify-content: center;

@@ -1,13 +1,16 @@
 import { CssBaseline } from "@material-ui/core";
 import { useState, useEffect } from "react";
-import axios from "axios";
+import Paper from "@material-ui/core/Paper";
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
 import Header from "./Header";
 import useStyles from "../static/bgStyles";
 import Cards from "./Cards";
 
 const Dashboard = (props) => {
   const [appointments, setAppointments] = useState([]);
-  const [menu, setmenu] = useState(0);
+  const [requests, setRequests] = useState([]);
+  const [menu, setMenu] = useState(1);
   const classes = useStyles();
 
   useEffect(() => {
@@ -16,7 +19,13 @@ const Dashboard = (props) => {
       setAppointments(appointmentsFromServer);
     };
 
+    const getRequests = async () => {
+      const requestsFromServer = await fetchRequests();
+      setRequests(requestsFromServer);
+    };
+
     getAppointments();
+    getRequests();
   }, []);
 
   const fetchAppointments = async () => {
@@ -25,30 +34,35 @@ const Dashboard = (props) => {
     return data;
   };
 
-  const course_requests = () => {
-    axios
-      .get("http://localhost:3001/course_requests")
-      .then((res) => {
-        if (res.data) {
-          res.data.forEach((x) => console.log(x.name));
-        }
-      })
-      .catch((error) => {
-        console.log("check login error", error);
-      });
+  const fetchRequests = async () => {
+    const res = await fetch("http://localhost:3001/course_requests");
+    const data = await res.json();
+    return data;
   };
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       <Header {...props} />
-      <div className="title-spacer m-0 column">
-        <Cards appointments={appointments} />
-        <button onClick={() => course_requests()}>
-          Recibir solicitudes de curso
-        </button>
-        <h1>Status: {props.loggedInStatus}</h1>
-      </div>
+      <>
+        <div className="flex">
+          <div className="aside pt-6">
+            <Paper className="menu">
+              <MenuList>
+                <MenuItem onClick={() => setMenu(1)}>
+                  Solicitudes de cita
+                </MenuItem>
+                <MenuItem onClick={() => setMenu(2)}>Ventas de curso</MenuItem>
+                <MenuItem onClick={() => setMenu(3)}>Usuarios</MenuItem>
+                <MenuItem onClick={() => setMenu(4)}>Analíticas</MenuItem>
+              </MenuList>
+            </Paper>
+          </div>
+          <div className="title-spacer m-0 column main">
+            <Cards data={appointments} />
+          </div>
+        </div>
+      </>
     </div>
   );
 };
