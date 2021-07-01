@@ -2,7 +2,7 @@ const members = [
   {
     title: "Dra. Grecia Rojas",
     description: [
-      "Médico Cirujano Universidad de los Andes.",
+      "Médico Cirujano Universidad de los Andes - VE.",
       "Revalidad Universidad de Chile.",
       "Diplomado Psicoterapia de la Obesidad CELK Argentina.",
       "Diplomado de patología Frecuente del Adult.",
@@ -16,7 +16,7 @@ const members = [
   {
     title: "Dr. Julio Rojas",
     description: [
-      "Medico Cirujano Universidad Lisandro Alvarado.",
+      "Medico Cirujano Universidad Lisandro Alvarado - VE.",
       "Ginecologia y Obstetricia de la Universidad de los Andes.",
       "Enfoque integral de la mujer en sus diferentes etapas.",
       "Master en Medicina Antienvejecimiento y Longevidad. Universidad de Barcelona.",
