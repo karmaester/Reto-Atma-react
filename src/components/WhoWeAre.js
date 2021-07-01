@@ -1,6 +1,8 @@
 import { CssBaseline } from "@material-ui/core";
 import Header from "./Header";
 import useStyles from "../static/bgStyles";
+import DescriptionCard from "./DescriptionCard";
+import members from "../static/members";
 
 const WhoWeAre = (props) => {
   const classes = useStyles();
@@ -8,7 +10,11 @@ const WhoWeAre = (props) => {
     <div className={classes.root}>
       <CssBaseline />
       <Header {...props} />
-      <h1 className="title-spacer m-0">Quienes somos</h1>
+      <div className="pt-6 blog-spacer m-0 column">
+        <DescriptionCard article={members[0]} />
+        <DescriptionCard article={members[1]} />
+        <DescriptionCard article={members[2]} />
+      </div>
     </div>
   );
 };

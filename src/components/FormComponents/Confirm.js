@@ -5,6 +5,11 @@ import { List, ListItem, ListItemText } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
 const Confirm = ({ nextStep, prevStep, values, action }) => {
+  const setType =
+    action === "appointment"
+      ? "Solicitud de cita médica"
+      : "Solicitud de curso";
+
   const handleSubmit = (event) => {
     axios
       .post("http://localhost:3001/requests", {
@@ -13,6 +18,8 @@ const Confirm = ({ nextStep, prevStep, values, action }) => {
           name: values.firstName,
           last_name: values.lastName,
           phone: values.phone,
+          status: "not seen",
+          request_type: setType,
         },
       })
       .then((response) => {

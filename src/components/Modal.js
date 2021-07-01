@@ -100,10 +100,10 @@ export default function TransitionsModal(props) {
               ) : (
                 <>
                   <li>
-                    <Link to="/registro">Registarme</Link>
+                    <Link to="/ingresar">Ingresar</Link>
                   </li>
                   <li>
-                    <Link to="/ingresar">Ingresar</Link>
+                    <Link to="/registro">Registarme</Link>
                   </li>
                 </>
               )}

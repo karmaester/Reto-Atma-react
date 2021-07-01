@@ -1,14 +1,60 @@
 import React from "react";
 import DoneOutlineIcon from "@material-ui/icons/DoneOutline";
+import InfoIcon from "@material-ui/icons/Info";
 
-const Success = ({ name }) => {
+const Success = ({ name, action }) => {
   return (
-    <div className="rounded">
-      <DoneOutlineIcon className="success-icon" />
-      <h2 className="success-message">
-        Gracias {name}, ha solicitado atención para agendar su cita, será
-        contactad@ en la mayor brevedad posible
-      </h2>
+    <div className="rounded m-5">
+      {action === "appointment" ? (
+        <>
+          <DoneOutlineIcon className="success-icon" />
+          <h2 className="success-message">
+            Gracias {name}, ha solicitado atención para agendar su cita, será
+            contactad@ en la mayor brevedad posible.
+          </h2>
+        </>
+      ) : (
+        <>
+          <InfoIcon className="success-icon" />
+          <p className="success-message">
+            Gracias {name}, ha solicitado acceso al curso Alimentación Sana.
+          </p>
+          <p className="success-message">
+            Debes transferir 15.000 pesos al siguiente número de cuenta:
+          </p>
+          <br />
+          <p className="success-message center">Grecia Rojas</p>
+          <p className="success-message center">Banco de Chile</p>
+          <p className="success-message center">Cuenta corriente</p>
+          <p className="success-message center">Rut: 26.107.816-3</p>
+          <p className="success-message center">N° de cuenta: 002701391303</p>
+          <br />
+          <p className="success-message">
+            Envía comprobante de pago al siguiente correo electrónico:
+          </p>
+          <br />
+          <a
+            className="success-message center"
+            href={
+              "mailto:retoatma@gmail.com?subject=Comprobante de pago de " +
+              { name } +
+              "&body=" +
+              "Hola " +
+              { name } +
+              "! En el presente correo debes adjuntar tu comprobante de pago."
+            }
+          >
+            retoatma@gmail.com
+          </a>
+          <br />
+          <p className="success-message">
+            Serás contactad@ en la mayor brevedad posible con el acceso al
+            curso.
+          </p>
+          <a href="http://">paypal</a>
+          <a href="http://">webpay</a>
+        </>
+      )}
     </div>
   );
 };

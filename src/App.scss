@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .blog-spacer {
@@ -22,6 +22,18 @@
 
 .pt {
   padding-top: 5rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.pt-6 {
+  padding-top: 6rem;
+}
+
+.m-5 {
+  margin: 5rem;
 }
 
 .m-0 {
@@ -118,6 +130,11 @@
     width: 100%;
   }
   .success-message {
+    font-size: 1.2rem;
+    line-height: 1.1rem;
+    font-weight: bold;
+  }
+  .center {
     text-align: center;
   }
 }

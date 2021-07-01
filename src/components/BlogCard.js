@@ -61,7 +61,9 @@ export default function ImgMediaCard({ article, openArticle, isMain }) {
             component="p"
             className={classes.desc}
           >
-            {article.description}
+            {isMain
+              ? article.description.substring(0, 250) + "..."
+              : article.description}
           </Typography>
         </CardContent>
       </CardActionArea>
