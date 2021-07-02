@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 const SignUp = (props) => {
   const handelSuccessfulAuth = (data) => {
     props.handleLogin(data);
-    props.history.push("/dashboard");
+    props.history.push("/");
   };
 
   const classes = useStyles();

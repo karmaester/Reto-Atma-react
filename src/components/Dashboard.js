@@ -29,15 +29,34 @@ const Dashboard = (props) => {
   }, []);
 
   const fetchAppointments = async () => {
-    const res = await fetch("http://localhost:3001/appointments");
+    const res = await fetch(
+      "https://tim-bunnyhug-56158.herokuapp.com/appointments"
+    );
     const data = await res.json();
     return data;
   };
 
   const fetchRequests = async () => {
-    const res = await fetch("http://localhost:3001/course_requests");
+    const res = await fetch(
+      "https://tim-bunnyhug-56158.herokuapp.com/course_requests"
+    );
     const data = await res.json();
     return data;
+  };
+
+  const menuToShow = () => {
+    switch (menu) {
+      case 1:
+        return appointments;
+      case 2:
+        return requests;
+      case 3:
+        return requests;
+      case 4:
+        return requests;
+      default:
+        return appointments;
+    }
   };
 
   return (
@@ -58,8 +77,8 @@ const Dashboard = (props) => {
               </MenuList>
             </Paper>
           </div>
-          <div className="title-spacer m-0 column main">
-            <Cards data={appointments} />
+          <div className="pt-6 m-0 column main">
+            <Cards data={menuToShow()} />
           </div>
         </div>
       </>

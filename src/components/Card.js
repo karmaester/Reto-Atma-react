@@ -1,8 +1,11 @@
 const Card = ({ item }) => {
   return (
-    <div className="">
-      <h3>{item.name}</h3>
-      <p>{item.last_name}</p>
+    <div className="card">
+      <h3>{item.name + " " + item.last_name}</h3>
+      <span>{item.email}</span>
+      <span>{item.phone}</span>
+      <span>{item.created_at.substring(0, 10)}</span>
+      <button>{item.status}</button>
     </div>
   );
 };

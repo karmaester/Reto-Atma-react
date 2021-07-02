@@ -52,7 +52,22 @@ const Success = ({ name, action }) => {
             curso.
           </p>
           <a href="http://">paypal</a>
-          <a href="http://">webpay</a>
+          <form
+            name="rec87082131_btn1"
+            method="post"
+            action="https://www.webpay.cl/portalpagodirecto/pages/datos.jsf"
+          >
+            <input type="hidden" name="idRecaudacion" value="87082131" />
+            <input type="hidden" name="monto" value="1000" />
+            <input
+              alt="webpay"
+              type="image"
+              title="Imagen"
+              name="button1"
+              src="https://www.webpay.cl/portalpagodirecto/img/pagar01.png"
+              value="Boton 1"
+            />
+          </form>
         </>
       )}
     </div>
