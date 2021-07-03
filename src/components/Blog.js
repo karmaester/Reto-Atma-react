@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CssBaseline, Button } from "@material-ui/core";
 import Header from "./Header";
 import useStyles from "../static/bgStyles";
-import BlogCard from "./BlogCard";
+import BlogCard from "./cards/BlogCard";
 import articles from "../static/articles";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 

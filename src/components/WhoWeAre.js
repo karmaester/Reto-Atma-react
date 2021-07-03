@@ -1,7 +1,7 @@
 import { CssBaseline } from "@material-ui/core";
 import Header from "./Header";
 import useStyles from "../static/bgStyles";
-import DescriptionCard from "./DescriptionCard";
+import DescriptionCard from "./cards/DescriptionCard";
 import members from "../static/members";
 
 const WhoWeAre = (props) => {

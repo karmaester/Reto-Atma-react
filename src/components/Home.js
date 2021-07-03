@@ -4,7 +4,7 @@ import Header from "./Header";
 import PlaceToVisit from "./PlaceToVisit";
 import { Title } from "./Title";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     minHeight: "100vh",
     backgroundImage: `url(${process.env.PUBLIC_URL + "/assets/bg.jpg"})`,

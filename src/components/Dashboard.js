@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import Header from "./Header";
 import useStyles from "../static/bgStyles";
-import Cards from "./Cards";
+import Cards from "./cards/Cards";
 
 const Dashboard = (props) => {
   const [appointments, setAppointments] = useState([]);

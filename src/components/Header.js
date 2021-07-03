@@ -8,7 +8,7 @@ import TransitionsModal from "./Modal";
 
 Modal.setAppElement("#root");
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   appbar: {
     background: "rgba(255, 255, 255, 0.46)",
     zIndex: "1",

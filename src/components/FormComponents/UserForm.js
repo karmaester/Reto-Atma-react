@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import FormUserDetails from "./FormComponents/FormUserDetails";
-import Confirm from "./FormComponents/Confirm";
-import Success from "./FormComponents/Success";
+import FormUserDetails from "./FormUserDetails";
+import Confirm from "./Confirm";
+import Success from "./Success";
 
 class UserForm extends Component {
   state = {

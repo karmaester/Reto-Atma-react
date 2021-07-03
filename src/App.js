@@ -52,6 +52,7 @@ export default class App extends Component {
 
   componentDidMount() {
     this.checkLoginStatus();
+    console.log(this.state.user);
   }
 
   handleLogout() {
@@ -104,6 +105,7 @@ export default class App extends Component {
                   {...props}
                   handleLogout={this.handleLogout}
                   loggedInStatus={this.state.loggedStatus}
+                  user={this.state.user}
                 />
               )}
             />

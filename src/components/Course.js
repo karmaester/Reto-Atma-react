@@ -1,7 +1,7 @@
 import { CssBaseline } from "@material-ui/core";
 import Header from "./Header";
 import useStyles from "../static/bgStyles";
-import UserForm from "./UserForm";
+import UserForm from "./FormComponents/UserForm";
 
 const Course = (props) => {
   const classes = useStyles();

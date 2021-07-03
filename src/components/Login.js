@@ -3,7 +3,7 @@ import { CssBaseline } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Header from "./Header";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     minHeight: "100vh",
     backgroundImage: `url(${process.env.PUBLIC_URL + "/assets/bg.jpg"})`,
