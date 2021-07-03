@@ -1,6 +1,7 @@
-import Login from "./auth/Login";
+import Login from "./auth/LoginForm";
 import { CssBaseline } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
 import Header from "./Header";
 
 const useStyles = makeStyles(() => ({
@@ -12,10 +13,11 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const LogIn = (props) => {
+const LogIn = ({ props, handleLogin }) => {
+  let history = useHistory();
   const handelSuccessfulAuth = (data) => {
-    props.handleLogin(data);
-    props.history.push("/dashboard");
+    handleLogin(data);
+    history.push("/");
   };
 
   const classes = useStyles();

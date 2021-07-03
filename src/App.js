@@ -17,27 +17,42 @@ const App = () => {
   const [user, setUser] = useState({});
 
   const checkLoginStatus = () => {
+    console.log("It seems your not getting anywhere");
     axios
       .get("https://tim-bunnyhug-56158.herokuapp.com/logged_in", {
         withCredentials: true,
       })
       .then((res) => {
-        if (res.data.logged_in && loggedStatus === "NOT_LOGGED_IN") {
+        console.log(res);
+        if (res.data.logged_in) {
           setLoggedStatus("LOGGED_IN");
           setUser(res.data.user);
-        } else if (!res.data.logged_in && loggedStatus === "LOGGED_IN") {
-          setLoggedStatus("NOT_LOGGED_IN");
-          setUser({});
         }
       })
-      .catch((error) => {
-        console.log("check login error", error);
-      });
+      .catch((err) => console.log(err));
+    // axios
+    //   .get("http://localhost:3001/logged_in", {
+    //     withCredentials: true,
+    //   })
+    //   .then((res) => {
+    //     if (res.data.logged_in && loggedStatus === "NOT_LOGGED_IN") {
+    //       setLoggedStatus("LOGGED_IN");
+    //       setUser(res.data.user);
+    //       console.log("It seems you're on");
+    //     } else if (!res.data.logged_in && loggedStatus === "LOGGED_IN") {
+    //       setLoggedStatus("NOT_LOGGED_IN");
+    //       setUser({});
+    //       console.log("It seems you're not on");
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log("check login error", error);
+    //   });
   };
 
   useEffect(() => {
     checkLoginStatus();
-  });
+  }, []);
 
   const handleLogout = () => {
     setLoggedStatus("NOT_LOGGED_IN");
@@ -47,6 +62,7 @@ const App = () => {
   const handleLogin = (data) => {
     setLoggedStatus("LOGGED_IN");
     setUser(data.user);
+    console.log(data.user);
   };
 
   return (
