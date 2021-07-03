@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import "./App.scss";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import axios from "axios";
@@ -11,164 +12,143 @@ import WhoWeAre from "./components/WhoWeAre";
 import SignUp from "./components/Register";
 import LogIn from "./components/Login";
 
-export default class App extends Component {
-  constructor() {
-    super();
+const App = () => {
+  const [loggedStatus, setLoggedStatus] = useState("NOT_LOGGED_IN");
+  const [user, setUser] = useState({});
 
-    this.state = {
-      loggedStatus: "NOT_LOGGED_IN",
-      user: {},
-    };
-
-    this.handleLogin = this.handleLogin.bind(this);
-    this.handleLogout = this.handleLogout.bind(this);
-  }
-
-  checkLoginStatus() {
+  const checkLoginStatus = () => {
     axios
       .get("https://tim-bunnyhug-56158.herokuapp.com/logged_in", {
         withCredentials: true,
       })
       .then((res) => {
-        if (res.data.logged_in && this.state.loggedStatus === "NOT_LOGGED_IN") {
-          this.setState({
-            loggedStatus: "LOGGED_IN",
-            user: res.data.user,
-          });
-        } else if (
-          !res.data.logged_in &&
-          this.state.loggedStatus === "LOGGED_IN"
-        ) {
-          this.setState({
-            loggedStatus: "NOT_LOGGED_IN",
-            user: {},
-          });
+        if (res.data.logged_in && loggedStatus === "NOT_LOGGED_IN") {
+          setLoggedStatus("LOGGED_IN");
+          setUser(res.data.user);
+        } else if (!res.data.logged_in && loggedStatus === "LOGGED_IN") {
+          setLoggedStatus("NOT_LOGGED_IN");
+          setUser({});
         }
       })
       .catch((error) => {
         console.log("check login error", error);
       });
-  }
+  };
 
-  componentDidMount() {
-    this.checkLoginStatus();
-    console.log(this.state.user);
-  }
+  useEffect(() => {
+    checkLoginStatus();
+  });
 
-  handleLogout() {
-    this.setState({
-      loggedStatus: "NOT_LOGGED_IN",
-      user: {},
-    });
-  }
+  const handleLogout = () => {
+    setLoggedStatus("NOT_LOGGED_IN");
+    setUser({});
+  };
 
-  handleLogin(data) {
-    this.setState({
-      loggedStatus: "LOGGED_IN",
-      user: data.user,
-    });
-  }
+  const handleLogin = (data) => {
+    setLoggedStatus("LOGGED_IN");
+    setUser(data.user);
+  };
 
-  render() {
-    return (
-      <div className="app">
-        <BrowserRouter>
-          <Switch>
-            <Route
-              exact
-              path={"/"}
-              render={(props) => (
-                <Home
-                  {...props}
-                  handleLogin={this.handleLogin}
-                  handleLogout={this.handleLogout}
-                  loggedInStatus={this.state.loggedStatus}
-                />
-              )}
-            />
-            <Route
-              exact
-              path={"/dashboard"}
-              render={(props) => (
-                <Dashboard
-                  {...props}
-                  handleLogout={this.handleLogout}
-                  loggedInStatus={this.state.loggedStatus}
-                />
-              )}
-            />
-            <Route
-              exact
-              path={"/consulta"}
-              render={(props) => (
-                <Appointement
-                  {...props}
-                  handleLogout={this.handleLogout}
-                  loggedInStatus={this.state.loggedStatus}
-                  user={this.state.user}
-                />
-              )}
-            />
-            <Route
-              exact
-              path={"/curso"}
-              render={(props) => (
-                <Course
-                  {...props}
-                  handleLogout={this.handleLogout}
-                  loggedInStatus={this.state.loggedStatus}
-                />
-              )}
-            />
-            <Route
-              exact
-              path={"/blog"}
-              render={(props) => (
-                <Blog
-                  {...props}
-                  handleLogout={this.handleLogout}
-                  loggedInStatus={this.state.loggedStatus}
-                />
-              )}
-            />
-            <Route
-              exact
-              path={"/quienes-somos"}
-              render={(props) => (
-                <WhoWeAre
-                  {...props}
-                  handleLogout={this.handleLogout}
-                  loggedInStatus={this.state.loggedStatus}
-                />
-              )}
-            />
-            <Route
-              exact
-              path={"/registro"}
-              render={(props) => (
-                <SignUp
-                  {...props}
-                  handleLogout={this.handleLogout}
-                  handleLogin={this.handleLogin}
-                  loggedInStatus={this.state.loggedStatus}
-                />
-              )}
-            />
-            <Route
-              exact
-              path={"/ingresar"}
-              render={(props) => (
-                <LogIn
-                  {...props}
-                  handleLogout={this.handleLogout}
-                  handleLogin={this.handleLogin}
-                  loggedInStatus={this.state.loggedStatus}
-                />
-              )}
-            />
-          </Switch>
-        </BrowserRouter>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="app">
+      <BrowserRouter>
+        <Switch>
+          <Route
+            exact
+            path={"/"}
+            render={(props) => (
+              <Home
+                {...props}
+                handleLogin={handleLogin}
+                handleLogout={handleLogout}
+                loggedInStatus={loggedStatus}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={"/dashboard"}
+            render={(props) => (
+              <Dashboard
+                {...props}
+                handleLogout={handleLogout}
+                loggedInStatus={loggedStatus}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={"/consulta"}
+            render={(props) => (
+              <Appointement
+                {...props}
+                handleLogout={handleLogout}
+                loggedInStatus={loggedStatus}
+                user={user}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={"/curso"}
+            render={(props) => (
+              <Course
+                {...props}
+                handleLogout={handleLogout}
+                loggedInStatus={loggedStatus}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={"/blog"}
+            render={(props) => (
+              <Blog
+                {...props}
+                handleLogout={handleLogout}
+                loggedInStatus={loggedStatus}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={"/quienes-somos"}
+            render={(props) => (
+              <WhoWeAre
+                {...props}
+                handleLogout={handleLogout}
+                loggedInStatus={loggedStatus}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={"/registro"}
+            render={(props) => (
+              <SignUp
+                {...props}
+                handleLogout={handleLogout}
+                handleLogin={handleLogin}
+                loggedInStatus={loggedStatus}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={"/ingresar"}
+            render={(props) => (
+              <LogIn
+                {...props}
+                handleLogout={handleLogout}
+                handleLogin={handleLogin}
+                loggedInStatus={loggedStatus}
+              />
+            )}
+          />
+        </Switch>
+      </BrowserRouter>
+    </div>
+  );
+};
+
+export default App;
