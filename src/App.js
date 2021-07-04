@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./App.scss";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
 import Appointement from "./components/Appointment";
@@ -14,40 +14,14 @@ import LogIn from "./components/Login";
 
 const App = () => {
   const [loggedStatus, setLoggedStatus] = useState("NOT_LOGGED_IN");
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(false);
 
   const checkLoginStatus = () => {
-    console.log("It seems your not getting anywhere");
-    axios
-      .get("https://tim-bunnyhug-56158.herokuapp.com/logged_in", {
-        withCredentials: true,
-      })
-      .then((res) => {
-        console.log(res);
-        if (res.data.logged_in) {
-          setLoggedStatus("LOGGED_IN");
-          setUser(res.data.user);
-        }
-      })
-      .catch((err) => console.log(err));
-    // axios
-    //   .get("http://localhost:3001/logged_in", {
-    //     withCredentials: true,
-    //   })
-    //   .then((res) => {
-    //     if (res.data.logged_in && loggedStatus === "NOT_LOGGED_IN") {
-    //       setLoggedStatus("LOGGED_IN");
-    //       setUser(res.data.user);
-    //       console.log("It seems you're on");
-    //     } else if (!res.data.logged_in && loggedStatus === "LOGGED_IN") {
-    //       setLoggedStatus("NOT_LOGGED_IN");
-    //       setUser({});
-    //       console.log("It seems you're not on");
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log("check login error", error);
-    //   });
+    if (window.sessionStorage.getItem("session")) {
+      let parsedUser = JSON.parse(window.sessionStorage.getItem("session"));
+      setLoggedStatus("LOGGED_IN");
+      setUser(parsedUser);
+    }
   };
 
   useEffect(() => {
@@ -56,13 +30,14 @@ const App = () => {
 
   const handleLogout = () => {
     setLoggedStatus("NOT_LOGGED_IN");
-    setUser({});
+    setUser(false);
+    window.sessionStorage.removeItem("session");
   };
 
   const handleLogin = (data) => {
     setLoggedStatus("LOGGED_IN");
     setUser(data.user);
-    console.log(data.user);
+    window.sessionStorage.setItem("session", JSON.stringify(data.user));
   };
 
   return (
