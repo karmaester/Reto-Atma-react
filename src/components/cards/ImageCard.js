@@ -10,14 +10,20 @@ import Typography from "@material-ui/core/Typography";
 import { Collapse } from "@material-ui/core";
 import Slider from "react-slick";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 545,
     background: "rgba(0,0,0,0.5)",
     margin: "20px",
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: 445,
+    },
   },
   media: {
-    height: 700,
+    height: 720,
+    [theme.breakpoints.down("sm")]: {
+      height: 620,
+    },
   },
   title: {
     fontFamily: "Nunito",
@@ -30,7 +36,7 @@ const useStyles = makeStyles({
     fontSize: "1.1rem",
     color: "#ddd",
   },
-});
+}));
 
 export default function ImageCard({ place, checked }) {
   const classes = useStyles();
