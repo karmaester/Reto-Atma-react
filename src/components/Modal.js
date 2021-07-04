@@ -41,14 +41,7 @@ export default function TransitionsModal(props) {
   };
 
   const handleLogoutClick = () => {
-    axios
-      .delete("http://localhost:3001/logout", { withCredentials: true })
-      .then((response) => {
-        props.handleLogout();
-      })
-      .catch((error) => {
-        console.log("logout error", error);
-      });
+    props.handleLogout();
   };
 
   return (
