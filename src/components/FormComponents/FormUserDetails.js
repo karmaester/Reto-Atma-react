@@ -13,7 +13,8 @@ const FormUserDetails = ({ nextStep, values, handleChange }) => {
   return (
     <MuiThemeProvider>
       <>
-        <div className="rounded">
+        <div className="rounded mt-form">
+          <h3>Por favor ingrese sus datos y oprima el boton "Guardar".</h3>
           <TextField
             label="Nombre"
             variant="filled"

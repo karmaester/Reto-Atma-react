@@ -4,7 +4,7 @@ import InfoIcon from "@material-ui/icons/Info";
 
 const Success = ({ name, action }) => {
   return (
-    <div className="rounded m-5">
+    <div className="rounded m-success mt-form">
       {action === "appointment" ? (
         <>
           <DoneOutlineIcon className="success-icon" />

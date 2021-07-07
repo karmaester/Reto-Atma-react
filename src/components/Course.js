@@ -2,6 +2,7 @@ import { CssBaseline } from "@material-ui/core";
 import Header from "./Header";
 import useStyles from "../static/bgStyles";
 import UserForm from "./FormComponents/UserForm";
+import Success from "./FormComponents/Success";
 
 const Course = (props) => {
   const classes = useStyles();
@@ -10,7 +11,11 @@ const Course = (props) => {
       <CssBaseline />
       <Header {...props} />
       <div className="title-spacer m-0">
-        <UserForm action="course" />
+        {props.loggedInStatus === "LOGGED_IN" ? (
+          <Success name="temporal" action="course" />
+        ) : (
+          <UserForm action="course" />
+        )}
       </div>
     </div>
   );

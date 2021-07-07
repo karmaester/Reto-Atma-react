@@ -61,8 +61,12 @@
   padding-top: 6rem;
 }
 
-.m-5 {
-  margin: 5rem;
+.mt-form {
+  margin-top: 5rem;
+}
+
+.m-success {
+  margin: 7rem 3rem 5rem 3rem;
 }
 
 .m-0 {
@@ -199,10 +203,18 @@
     padding: 2rem;
   }
 
+  .m-success {
+    margin: 7rem 0.5rem 2rem 0.5rem;
+  }
+
   .modal-menu {
     li {
       font-size: 1.5rem;
       padding: 0.5rem;
     }
+  }
+
+  .mt-form {
+    margin-top: 8rem;
   }
 }

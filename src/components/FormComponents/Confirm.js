@@ -12,7 +12,7 @@ const Confirm = ({ nextStep, prevStep, values, action }) => {
 
   const handleSubmit = (event) => {
     axios
-      .post("https://tim-bunnyhug-56158.herokuapp.com/requests", {
+      .post("http://localhost:3001/requests", {
         request: {
           email: values.email,
           name: values.firstName,
@@ -45,7 +45,8 @@ const Confirm = ({ nextStep, prevStep, values, action }) => {
   return (
     <MuiThemeProvider>
       <>
-        <div className="rounded">
+        <div className="rounded mt-form">
+          <h3>Si sus datos están correctos, oprima el boton "{buttonText}".</h3>
           <List>
             <ListItem>
               <ListItemText primary="Nombre" secondary={values.firstName} />

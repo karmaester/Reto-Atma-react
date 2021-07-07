@@ -13,7 +13,7 @@ const Login = ({ handelSuccessfulAuth }) => {
   const handleSubmit = (event) => {
     axios
       .post(
-        "https://tim-bunnyhug-56158.herokuapp.com/sessions",
+        "http://localhost:3001/sessions",
         {
           user: {
             email: email,
@@ -39,6 +39,7 @@ const Login = ({ handelSuccessfulAuth }) => {
     <MuiThemeProvider>
       <>
         <div className="rounded">
+          <h3>Por favor ingrese email y contraseña.</h3>
           <TextField
             type="email"
             label="Email"
@@ -52,8 +53,8 @@ const Login = ({ handelSuccessfulAuth }) => {
           <TextField
             type="password"
             name="password"
-            label="password"
-            placeholder="Password"
+            label="Contraseña"
+            placeholder="Contraseña"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required

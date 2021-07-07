@@ -34,7 +34,7 @@ export default class Registration extends Component {
 
     axios
       .post(
-        "https://tim-bunnyhug-56158.herokuapp.com/registrations",
+        "http://localhost:3001/registrations",
         {
           user: {
             email: email,
@@ -63,7 +63,10 @@ export default class Registration extends Component {
     return (
       <MuiThemeProvider>
         <>
-          <div className="rounded">
+          <div className="rounded mt-form">
+            <h3>
+              Por favor ingrese sus datos y oprima el boton "Registrarme".
+            </h3>
             <TextField
               label="Nombres"
               name="name"

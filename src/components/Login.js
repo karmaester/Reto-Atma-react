@@ -17,6 +17,7 @@ const LogIn = ({ props, handleLogin }) => {
   let history = useHistory();
   const handelSuccessfulAuth = (data) => {
     handleLogin(data);
+    console.log(data);
     history.push("/");
   };
 

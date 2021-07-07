@@ -36,8 +36,8 @@ const App = () => {
 
   const handleLogin = (data) => {
     setLoggedStatus("LOGGED_IN");
-    setUser(data.user);
-    window.sessionStorage.setItem("session", JSON.stringify(data.user));
+    setUser(data);
+    window.sessionStorage.setItem("session", JSON.stringify(data));
   };
 
   return (

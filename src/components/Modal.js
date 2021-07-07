@@ -32,6 +32,29 @@ export default function TransitionsModal(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
+  const handleSubmit = (type) => {
+    let user = JSON.parse(window.sessionStorage.getItem("session"));
+    axios
+      .post("http://localhost:3001/requests", {
+        request: {
+          email: user.email,
+          name: user.user_name,
+          last_name: user.user_last_name,
+          phone: user.phone,
+          status: "not seen",
+          request_type: type,
+        },
+      })
+      .then((response) => {
+        if (response.data.status === "created") {
+          console.log(response.data);
+        }
+      })
+      .catch((err) => {
+        console.log("registration error", err);
+      });
+  };
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -67,12 +90,35 @@ export default function TransitionsModal(props) {
               <CancelIcon fontSize="large" />
             </button>
             <ul className="modal-menu">
-              <li>
-                <Link to="/consulta">Solicitar consulta médica</Link>
-              </li>
-              <li>
-                <Link to="/curso">Comprar curso</Link>
-              </li>
+              {props.loggedInStatus === "LOGGED_IN" ? (
+                <>
+                  <li>
+                    <Link
+                      to="/consulta"
+                      onClick={() => handleSubmit("Solicitud de cita medica")}
+                    >
+                      Solicitar consulta médica
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/curso"
+                      onClick={() => handleSubmit("Solicitud de curso ")}
+                    >
+                      Comprar curso
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/consulta">Solicitar consulta médica</Link>
+                  </li>
+                  <li>
+                    <Link to="/curso">Comprar curso</Link>
+                  </li>
+                </>
+              )}
               <li>
                 <Link to="/blog">Blog</Link>
               </li>
