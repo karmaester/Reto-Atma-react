@@ -14,6 +14,17 @@ const members = [
     time: 1500,
   },
   {
+    title: "Pedro León",
+    description: [
+      "Instructor de Power Yoga por el Instituto Chileno de Yoga.",
+      "Fundador de Reto ATMA.",
+      "Emprendedor e Ingeniero.",
+      "Pto Montt- Pto Varas, Chile.",
+    ],
+    imageUrl: process.env.PUBLIC_URL + "/assets/pedro.jpg",
+    time: 1500,
+  },
+  {
     title: "Dr. Julio Rojas",
     description: [
       "Medico Cirujano Universidad Lisandro Alvarado - VE.",

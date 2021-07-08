@@ -14,6 +14,7 @@ const WhoWeAre = (props) => {
         <DescriptionCard article={members[0]} />
         <DescriptionCard article={members[1]} />
         <DescriptionCard article={members[2]} />
+        <DescriptionCard article={members[3]} />
       </div>
     </div>
   );
