@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "./App.scss";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-// import axios from "axios";
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
 import Appointement from "./components/Appointment";
@@ -11,6 +10,7 @@ import Course from "./components/Course";
 import WhoWeAre from "./components/WhoWeAre";
 import SignUp from "./components/Register";
 import LogIn from "./components/Login";
+import DepositInfo from "./components/FormComponents/DepositInfo";
 
 const App = () => {
   const [loggedStatus, setLoggedStatus] = useState("NOT_LOGGED_IN");
@@ -132,6 +132,17 @@ const App = () => {
                 {...props}
                 handleLogout={handleLogout}
                 handleLogin={handleLogin}
+                loggedInStatus={loggedStatus}
+              />
+            )}
+          />
+          <Route
+            exact
+            path={"/transferencia"}
+            render={(props) => (
+              <DepositInfo
+                {...props}
+                handleLogout={handleLogout}
                 loggedInStatus={loggedStatus}
               />
             )}
