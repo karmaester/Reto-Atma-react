@@ -95,7 +95,7 @@ export default function TransitionsModal(props) {
                   <li>
                     <Link
                       to="/consulta"
-                      onClick={() => handleSubmit("Solicitud de cita medica")}
+                      onClick={() => handleSubmit("Solicitud de cita médica")}
                     >
                       Solicitar consulta médica
                     </Link>
@@ -103,7 +103,7 @@ export default function TransitionsModal(props) {
                   <li>
                     <Link
                       to="/curso"
-                      onClick={() => handleSubmit("Solicitud de curso ")}
+                      onClick={() => handleSubmit("Solicitud de curso")}
                     >
                       Comprar curso
                     </Link>
