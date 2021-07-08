@@ -20,7 +20,6 @@ const Success = ({ name, action }) => {
           <p className="success-message">
             Gracias {name}, ha solicitado acceso al curso Alimentación Sana.
           </p>
-
           <Link to="/transferencia">Transferencia bancaria</Link>
           <br />
           <p className="success-message">

@@ -176,6 +176,14 @@
   }
 }
 
+.article-wrapper {
+  padding-bottom: 4rem;
+
+  .article {
+    margin: 2rem;
+  }
+}
+
 .column {
   flex-direction: column;
 }

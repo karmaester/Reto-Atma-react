@@ -3,8 +3,13 @@ import { CssBaseline, Button } from "@material-ui/core";
 import Header from "./Header";
 import useStyles from "../static/bgStyles";
 import BlogCard from "./cards/BlogCard";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
 import articles from "../static/articles";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import Article01 from "./articles/Article01";
 
 const Blog = (props) => {
   const [step, setStep] = useState(1);
@@ -52,8 +57,19 @@ const Blog = (props) => {
               <ArrowBackIcon />
             </Button>
           </div>
-          <div className="blog-spacer m-0 column">
-            <BlogCard article={articles[0]} />
+          <div className="article-wrapper">
+            <Card className="article">
+              <CardMedia
+                component="img"
+                alt="Contemplative Reptile"
+                className={classes.media}
+                image={articles[0].imageUrl}
+                title="Contemplative Reptile"
+              />
+              <CardContent>
+                <Article01 />
+              </CardContent>
+            </Card>
           </div>
         </div>
       );
