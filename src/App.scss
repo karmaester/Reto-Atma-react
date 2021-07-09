@@ -181,6 +181,30 @@
 
   .article {
     margin: 2rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.644);
+
+    .justified-text {
+      text-align: justify;
+
+      p,
+      ul,
+      ol {
+        font-size: 1rem;
+      }
+
+      .red {
+        color: red;
+      }
+
+      .underline {
+        text-decoration: underline;
+      }
+
+      .author {
+        font-weight: bold;
+      }
+    }
   }
 }
 
@@ -190,6 +214,11 @@
 
 .go-back {
   padding-top: 7rem;
+  padding-left: 1.5rem;
+}
+
+.go-back-bottom {
+  padding-bottom: 3rem;
   padding-left: 1.5rem;
 }
 

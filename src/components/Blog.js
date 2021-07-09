@@ -6,10 +6,10 @@ import BlogCard from "./cards/BlogCard";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
 import articles from "../static/articles";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Article01 from "./articles/Article01";
+import Article02 from "./articles/Article02";
 
 const Blog = (props) => {
   const [step, setStep] = useState(1);
@@ -62,7 +62,6 @@ const Blog = (props) => {
               <CardMedia
                 component="img"
                 alt="Contemplative Reptile"
-                className={classes.media}
                 image={articles[0].imageUrl}
                 title="Contemplative Reptile"
               />
@@ -70,6 +69,11 @@ const Blog = (props) => {
                 <Article01 />
               </CardContent>
             </Card>
+          </div>
+          <div className="go-back-bottom">
+            <Button variant="contained" onClick={() => setStep(1)}>
+              <ArrowBackIcon />
+            </Button>
           </div>
         </div>
       );
@@ -83,8 +87,23 @@ const Blog = (props) => {
               <ArrowBackIcon />
             </Button>
           </div>
-          <div className="blog-spacer m-0 column">
-            <BlogCard article={articles[1]} />
+          <div className="article-wrapper">
+            <Card className="article">
+              <CardMedia
+                component="img"
+                alt="Contemplative Reptile"
+                image={articles[1].imageUrl}
+                title="Contemplative Reptile"
+              />
+              <CardContent>
+                <Article02 />
+              </CardContent>
+            </Card>
+          </div>
+          <div className="go-back-bottom">
+            <Button variant="contained" onClick={() => setStep(1)}>
+              <ArrowBackIcon />
+            </Button>
           </div>
         </div>
       );
@@ -98,8 +117,23 @@ const Blog = (props) => {
               <ArrowBackIcon />
             </Button>
           </div>
-          <div className="blog-spacer m-0 column">
-            <BlogCard article={articles[2]} />
+          <div className="article-wrapper">
+            <Card className="article">
+              <CardMedia
+                component="img"
+                alt="Contemplative Reptile"
+                image={articles[2].imageUrl}
+                title="Contemplative Reptile"
+              />
+              <CardContent>
+                <Article02 />
+              </CardContent>
+            </Card>
+          </div>
+          <div className="go-back-bottom">
+            <Button variant="contained" onClick={() => setStep(1)}>
+              <ArrowBackIcon />
+            </Button>
           </div>
         </div>
       );
@@ -113,8 +147,23 @@ const Blog = (props) => {
               <ArrowBackIcon />
             </Button>
           </div>
-          <div className="blog-spacer m-0 column">
-            <BlogCard article={articles[3]} />
+          <div className="article-wrapper">
+            <Card className="article">
+              <CardMedia
+                component="img"
+                alt="Contemplative Reptile"
+                image={articles[3].imageUrl}
+                title="Contemplative Reptile"
+              />
+              <CardContent>
+                <Article01 />
+              </CardContent>
+            </Card>
+          </div>
+          <div className="go-back-bottom">
+            <Button variant="contained" onClick={() => setStep(1)}>
+              <ArrowBackIcon />
+            </Button>
           </div>
         </div>
       );

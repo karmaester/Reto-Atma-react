@@ -7,6 +7,13 @@ const articles = [
     time: 1500,
   },
   {
+    title: "¿Pastillas o Yoga?",
+    description:
+      "Desde que somos niños todos los seres humanos debemos lidiar con la enfermedad de una u otra manera. ¿Quién no se ha enfermado al menos de un simple resfriado o de una dolor de espalda? Una gripe, una indigestión, la inflamación de alguna parte del cuerpo,",
+    imageUrl: process.env.PUBLIC_URL + "/assets/happy.jpg",
+    time: 1500,
+  },
+  {
     title:
       "Mindfulness, desde la percepción consciente y atenta, hasta la grata aceptación de tu realidad.",
     description:
@@ -19,14 +26,6 @@ const articles = [
     description:
       "Me atrevería a decir que es muy probable que tú seas de esas personas que están lidiando con su peso. Estoy un 90 % seguro de ello. Si la cosa de la perdida de peso era intensa antes de la pandemia, ahora que llevamos varios meses encerrados sin mucho que hacer en casa, ",
     imageUrl: process.env.PUBLIC_URL + "/assets/food2.jpg",
-    time: 1500,
-  },
-  {
-    title:
-      "YOGA: La mente en calma, el corazón contento y el cuerpo en movimiento",
-    description:
-      "En muchas ocasiones de nuestras vidas escuchamos reiteradamente la frase “la mente es poder”, y aunque no lo creamos, es un poder que va más allá de la realidad misma que a veces hasta a la ciencia se le escapa de las manos… aun así algunas personas no creen en ello. Si a eso le sumamos que el cuerpo",
-    imageUrl: process.env.PUBLIC_URL + "/assets/happy.jpg",
     time: 1500,
   },
 ];

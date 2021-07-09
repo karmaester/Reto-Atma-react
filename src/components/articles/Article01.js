@@ -2,11 +2,8 @@ import React from "react";
 
 const Article01 = () => {
   return (
-    <div>
+    <div className="justified-text">
       <h1>OBESIDAD Y SOBREPESO ¡UN PROBLEMA REAL Y ACTUAL!</h1>
-      <p>
-        Dra. Grecia Rojas y Univ. María Alejandra del Valle Pérez Pulido (ACUEM){" "}
-      </p>
       <p>
         En el marco mundial de la realidad actual a la que nos enfrentamos, la
         obesidad y el sobrepeso son cada día más comunes, y con ello ¡MAS
@@ -53,7 +50,7 @@ const Article01 = () => {
         Ahora vayamos a una interrogante más compleja, ¿Morimos por obesidad?
       </p>
       <p>
-        <span>
+        <span className="red">
           Para el año 2015 en 195 países, 4 millones de personas murieron con un
           IMC elevado y además la variabilidad de padecimiento entre niños o
           adultos mayores, hombres o mujeres. es mínima, eso significa que no
@@ -81,10 +78,12 @@ const Article01 = () => {
       </p>
       <p>
         Es por ello que los especialistas apuntan a que los{" "}
-        <span>cambios en los sistemas de alimentación </span> probablemente son
-        la causa principal. Es decir, corresponde a un problema no solo personal
-        sino también social, pues nuestra misma cotidianidad y los hábitos
-        sociales nos están volviendo obesos.{" "}
+        <span className="underline">
+          cambios en los sistemas de alimentación{" "}
+        </span>{" "}
+        probablemente son la causa principal. Es decir, corresponde a un
+        problema no solo personal sino también social, pues nuestra misma
+        cotidianidad y los hábitos sociales nos están volviendo obesos.{" "}
       </p>
       <p>
         Es más fácil optar por comida rápida y así se ahorra todo el esfuerzo
@@ -143,6 +142,102 @@ const Article01 = () => {
         quitarte kilos de mas. Como ya te expliqué es un desorden metabólico y
         es por ello que amerita introducción de hábitos que sean perdurables en
         el tiempo y para ello te daré algunos Tips de cómo comenzar:{" "}
+      </p>
+      <ol>
+        <li>
+          <p>
+            Inicia cambiando o agregando a tu vida una de estas variables a la
+            vez: bien sea alimentación, ejercicio físico, mejorar calidad del
+            sueño, yoga o ayuno. No intentes los días lunes iniciar con todos
+            los cambios porque lo único que generaras es mas estrés a tu mente.{" "}
+          </p>
+        </li>
+        <li>
+          <p>
+            COME SALUDABLE: recuerda la frase que dice “comida saludable, cuerpo
+            saludable”, porque es cierto, tu cuerpo es el vivo reflejo de lo que
+            ingieres y lo que llevas a tu boca representa la medicina de cada
+            una de tus células, tu decides como curarlas. Puede comenzar por:{" "}
+          </p>
+          <ul>
+            <li>
+              Baja las porciones que estas comiendo a la mitad todos los días.
+            </li>
+            <li>Cambia el pan ordinario por el pan integral.</li>
+            <li>
+              Suspende bebidas procesadas (gaseosas), dulces empaquetados y
+              mayonesa.
+            </li>
+            <li>Baja el consumo de comida procesada.</li>
+            <li>
+              Termina el día siempre habiendo comido una ensalada o vegetales.
+            </li>
+            <li>Cambia algunos días de carnes por legumbres.</li>
+            <li>Suspende o lleva al mínimo las cecinas, jamones y quesos.</li>
+            <li>Consume con agua todas tus comidas.</li>
+            <li>Suspende el azúcar y cambialo por stevia.</li>
+            <li>
+              Compra frutas y mantenlas limpias y de rápido acceso en casa para
+              que puedas agregarlas fácilmente a tu rutina diaria.
+            </li>
+          </ul>
+          <br />
+        </li>
+        <li>
+          <p>
+            MUEVE EL CUERPO: la actividad física te permitirá aumentar tus
+            niveles de energía, disminuir los dolores corporales por el
+            sedentarismo, bajar de peso e incluso conseguir equilibrio mental
+            para ser más feliz (¡Sí! tal cual como lo lees). Te daré también
+            unos tips de como comenzar:
+          </p>
+          <ul>
+            <li>
+              Evita comprarte un montón de maquinas para hacer ejercicio.
+              Primero busquemos en tu identidad que es lo que mas te gusta
+              hacer.
+            </li>
+            <li>
+              Descarga un podómetro en tu teléfono y comienza a llevar el numero
+              de pasos diarios, la meta inicial serán 12.000 diarios, luego
+              13.000 y así hasta llegar a 15.000.
+            </li>
+            <li>
+              Busca actividades en común con tus hijos que se vinculen a mover
+              el cuerpo y motívalos para que este sea un tiempo de calidad en
+              familia. Luego ellos serán tu mejor recordatorio para continuar
+              haciendolo. Una opción ideal es el bailar.
+            </li>
+            <li>
+              Evita comenzar a correr porque si tienes muchos kilogramos de más
+              solo te lesionaras tus articulaciones.
+            </li>
+          </ul>
+        </li>
+        <br />
+
+        <li>
+          Cuándo tengas hambre y quieras devorarte el refrigerador preguntate:
+          ¿Es hambre real o es emocional?, ¿Puedo saciarla con comida saludable
+          o es deseo por comer cosas altamente calóricas de sabores adictivos?,
+          ¿Estoy buscando compensar emociones como tristeza, frustración, dolor
+          o algo mas con ?.
+        </li>
+      </ol>
+      <p>
+        En conclusión, la obesidad y el sobrepeso son una condición de salud que
+        debemos intervenir pues nuestra vida depende de ello. Si te encuentras
+        en este estado recuerda que cada vez tenemos más información, recursos y
+        formas de transformar tu salud. Pide ayuda profesional, no te frustres
+        sino lo has logrado por ti mismo y dale a tu cuerpo una oportunidad más
+        para transformarse.
+      </p>
+      <p>Desde mi corazón te saludo.</p>
+      <p>Námaste </p>
+
+      <p className="author">
+        Dra. Grecia Rojas y Univ. María Alejandra del Valle Pérez Pulido
+        (ACUEM).
       </p>
     </div>
   );
