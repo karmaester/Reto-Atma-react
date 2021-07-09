@@ -6,13 +6,14 @@ import Success from "./FormComponents/Success";
 
 const Appointement = (props) => {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <CssBaseline />
       <Header {...props} />
       <div className="title-spacer m-0">
         {props.loggedInStatus === "LOGGED_IN" ? (
-          <Success name="temporal" action="appointment" />
+          <Success name={props.user.user_name} action="appointment" />
         ) : (
           <UserForm action="appointment" />
         )}
