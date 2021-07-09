@@ -1,73 +1,86 @@
-import React, { Component } from "react";
+import React from "react";
+import { useState } from "react";
 import FormUserDetails from "./FormUserDetails";
 import Confirm from "./Confirm";
 import Success from "./Success";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import { TextField } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import SaveIcon from "@material-ui/icons/Save";
 
-class UserForm extends Component {
-  state = {
-    step: 1,
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-  };
+const UserForm = (props) => {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [last_name, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [step, setStep] = useState(1);
 
-  //Proceed to next step
-  nextStep = () => {
-    const { step } = this.state;
-    this.setState({
-      step: step + 1,
-    });
-  };
+  const values = { name, last_name, email, phone };
 
-  //Go back to prev step
-  prevStep = () => {
-    const { step } = this.state;
-    this.setState({
-      step: step + -1,
-    });
-  };
-
-  //Handle input changes
-  handleChange = (input) => (e) => {
-    this.setState({ [input]: e.target.value });
-  };
-
-  render() {
-    const { step } = this.state;
-    const { firstName, lastName, email, phone } = this.state;
-    const values = { firstName, lastName, email, phone };
-
-    switch (step) {
-      case 1:
-        return (
-          <FormUserDetails
-            nextStep={this.nextStep}
-            handleChange={this.handleChange}
-            values={values}
-          />
-        );
-      case 2:
-        return (
-          <Confirm
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            values={values}
-            action={this.props.action}
-          />
-        );
-      case 3:
-        return <Success name={values.firstName} action={this.props.action} />;
-      default:
-        return (
-          <FormUserDetails
-            nextStep={this.nextStep}
-            handleChange={this.handleChange}
-            values={values}
-          />
-        );
-    }
+  switch (step) {
+    case 1:
+      return (
+        <MuiThemeProvider>
+          <>
+            <div className="rounded mt-form">
+              <h3>Por favor ingrese sus datos y oprima el boton "Guardar".</h3>
+              <TextField
+                label="Nombre"
+                variant="filled"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+              />
+              <br />
+              <TextField
+                label="Apellido"
+                placeholder="Apellidos"
+                variant="filled"
+                value={last_name}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+              <br />
+              <TextField
+                label="Email"
+                variant="filled"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <br />
+              <TextField
+                label="Número de teléfono"
+                variant="filled"
+                placeholder="Teléfono"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+              <br />
+              <Button
+                variant="contained"
+                startIcon={<SaveIcon />}
+                onClick={() => setStep(step + 1)}
+              >
+                {" "}
+                Guardar{" "}
+              </Button>
+            </div>
+          </>
+        </MuiThemeProvider>
+      );
+    case 2:
+      return (
+        <Confirm
+          nextStep={setStep(step + 1)}
+          prevStep={setStep(step - 1)}
+          values={values}
+          action={props.action}
+        />
+      );
+    case 3:
+      return <Success name={values.name} action={props.action} />;
+    default:
+      return <p>Default</p>;
   }
-}
+};
 
 export default UserForm;
