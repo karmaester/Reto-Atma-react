@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { TextField } from "@material-ui/core";
+import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import Button from "@material-ui/core/Button";
 
 const Login = ({ handelSuccessfulAuth }) => {
@@ -40,30 +41,34 @@ const Login = ({ handelSuccessfulAuth }) => {
       <>
         <div className="rounded">
           <h3>Por favor ingrese email y contraseña.</h3>
-          <TextField
-            type="email"
-            label="Email"
-            name="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <br />
-          <TextField
-            type="password"
-            name="password"
-            label="Contraseña"
-            placeholder="Contraseña"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <br />
-          <Button variant="contained" onClick={handleSubmit}>
-            {" "}
-            Ingresar{" "}
-          </Button>
+          <ValidatorForm className="center" onSubmit={handleSubmit}>
+            <TextValidator
+              validators={["required", "isEmail"]}
+              errorMessages={["este campo es requerido", "email no es valido"]}
+              type="email"
+              label="Email"
+              name="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <br />
+            <TextField
+              type="password"
+              name="password"
+              label="Contraseña"
+              placeholder="Contraseña"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <br />
+            <Button variant="contained" type="submit">
+              {" "}
+              Ingresar{" "}
+            </Button>
+          </ValidatorForm>
         </div>
       </>
     </MuiThemeProvider>

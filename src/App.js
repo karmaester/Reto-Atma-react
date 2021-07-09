@@ -87,6 +87,7 @@ const App = () => {
                 {...props}
                 handleLogout={handleLogout}
                 loggedInStatus={loggedStatus}
+                user={user}
               />
             )}
           />

@@ -12,7 +12,7 @@ const Course = (props) => {
       <Header {...props} />
       <div className="title-spacer m-0">
         {props.loggedInStatus === "LOGGED_IN" ? (
-          <Success name="temporal" action="course" />
+          <Success name={props.user.user_name} action="course" />
         ) : (
           <UserForm action="course" />
         )}
