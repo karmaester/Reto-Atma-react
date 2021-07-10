@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import FormUserDetails from "./FormUserDetails";
 import Confirm from "./Confirm";
 import Success from "./Success";
@@ -24,45 +25,57 @@ const UserForm = (props) => {
           <>
             <div className="rounded mt-form">
               <h3>Por favor ingrese sus datos y oprima el boton "Guardar".</h3>
-              <TextField
-                label="Nombre"
-                variant="filled"
-                onChange={(e) => setName(e.target.value)}
-                value={name}
-              />
-              <br />
-              <TextField
-                label="Apellido"
-                placeholder="Apellidos"
-                variant="filled"
-                value={last_name}
-                onChange={(e) => setLastName(e.target.value)}
-              />
-              <br />
-              <TextField
-                label="Email"
-                variant="filled"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <br />
-              <TextField
-                label="Número de teléfono"
-                variant="filled"
-                placeholder="Teléfono"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-              />
-              <br />
-              <Button
-                variant="contained"
-                startIcon={<SaveIcon />}
-                onClick={() => setStep(step + 1)}
-              >
-                {" "}
-                Guardar{" "}
-              </Button>
+              <ValidatorForm className="center">
+                <TextField
+                  label="Nombre"
+                  variant="filled"
+                  onChange={(e) => setName(e.target.value)}
+                  value={name}
+                />
+                <br />
+                <TextField
+                  label="Apellido"
+                  placeholder="Apellidos"
+                  variant="filled"
+                  value={last_name}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+                <br />
+                <TextValidator
+                  validators={["required", "isEmail"]}
+                  errorMessages={[
+                    "este campo es requerido",
+                    "email no es valido",
+                  ]}
+                  label="Email"
+                  variant="filled"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <br />
+                <TextValidator
+                  validators={["minStringLength:8", "isNumber"]}
+                  errorMessages={[
+                    "No es un número de teléfono válido",
+                    "Sólo pueden ser números",
+                  ]}
+                  label="Número de teléfono"
+                  variant="filled"
+                  placeholder="Teléfono"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+                <br />
+                <Button
+                  variant="contained"
+                  startIcon={<SaveIcon />}
+                  onClick={() => setStep(2)}
+                >
+                  {" "}
+                  Guardar{" "}
+                </Button>
+              </ValidatorForm>
             </div>
           </>
         </MuiThemeProvider>
@@ -70,8 +83,8 @@ const UserForm = (props) => {
     case 2:
       return (
         <Confirm
-          nextStep={setStep(step + 1)}
-          prevStep={setStep(step - 1)}
+          nextStep={() => setStep(3)}
+          prevStep={() => setStep(1)}
           values={values}
           action={props.action}
         />

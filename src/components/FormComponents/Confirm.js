@@ -15,8 +15,8 @@ const Confirm = ({ nextStep, prevStep, values, action }) => {
       .post("http://localhost:3001/requests", {
         request: {
           email: values.email,
-          name: values.firstName,
-          last_name: values.lastName,
+          name: values.name,
+          last_name: values.last_name,
           phone: values.phone,
           status: "not seen",
           request_type: setType,
@@ -49,11 +49,11 @@ const Confirm = ({ nextStep, prevStep, values, action }) => {
           <h3>Si sus datos están correctos, oprima el boton "{buttonText}".</h3>
           <List>
             <ListItem>
-              <ListItemText primary="Nombre" secondary={values.firstName} />
+              <ListItemText primary="Nombre" secondary={values.name} />
             </ListItem>
             <br />
             <ListItem>
-              <ListItemText primary="Apellido" secondary={values.lastName} />
+              <ListItemText primary="Apellido" secondary={values.last_name} />
             </ListItem>
             <br />
             <ListItem>
