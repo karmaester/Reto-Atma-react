@@ -12,7 +12,7 @@ const Confirm = ({ nextStep, prevStep, values, action }) => {
 
   const handleSubmit = (event) => {
     axios
-      .post("http://localhost:3001/requests", {
+      .post("https://tim-bunnyhug-56158.herokuapp.com/requests", {
         request: {
           email: values.email,
           name: values.name,

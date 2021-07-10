@@ -35,7 +35,7 @@ export default function TransitionsModal(props) {
   const handleSubmit = (type) => {
     let user = JSON.parse(window.sessionStorage.getItem("session"));
     axios
-      .post("http://localhost:3001/requests", {
+      .post("https://tim-bunnyhug-56158.herokuapp.com/requests", {
         request: {
           email: user.email,
           name: user.user_name,
