@@ -50,13 +50,10 @@ const Article01 = () => {
         Ahora vayamos a una interrogante más compleja, ¿Morimos por obesidad?
       </p>
       <p>
-        <span className="red">
-          Para el año 2015 en 195 países, 4 millones de personas murieron con un
-          IMC elevado y además la variabilidad de padecimiento entre niños o
-          adultos mayores, hombres o mujeres. es mínima, eso significa que no
-          hay diferencia sustancia de sexo o edad; por ello, la triste realidad
-          es que{" "}
-        </span>{" "}
+        Para el año 2015 en 195 países, 4 millones de personas murieron con un
+        IMC elevado y además la variabilidad de padecimiento entre niños o
+        adultos mayores, hombres o mujeres. es mínima, eso significa que no hay
+        diferencia sustancia de sexo o edad; por ello, la triste realidad es que
         todos estamos en riesgo de morir si padecemos obesidad.
       </p>
       <p>

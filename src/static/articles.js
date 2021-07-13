@@ -14,14 +14,6 @@ const articles = [
     time: 1500,
   },
   {
-    title:
-      "Mindfulness, desde la percepción consciente y atenta, hasta la grata aceptación de tu realidad.",
-    description:
-      "¿Alguna vez te has preguntado por que eres tan distraído?, ¿ha sido un problema para tu día a día estar poco concentrado en situaciones importantes?, ¿has sido víctima del estrés que no permite que tu concentración sea plena?, quizá sea hora de conseguir algunas respuestas a estas interrogantes, y no solo eso,",
-    imageUrl: process.env.PUBLIC_URL + "/assets/time.jpg",
-    time: 1500,
-  },
-  {
     title: "Ayuno Intermitente",
     description:
       "Me atrevería a decir que es muy probable que tú seas de esas personas que están lidiando con su peso. Estoy un 90 % seguro de ello. Si la cosa de la perdida de peso era intensa antes de la pandemia, ahora que llevamos varios meses encerrados sin mucho que hacer en casa, ",

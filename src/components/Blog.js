@@ -10,6 +10,7 @@ import articles from "../static/articles";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import Article01 from "./articles/Article01";
 import Article02 from "./articles/Article02";
+import Article03 from "./articles/Article03";
 
 const Blog = (props) => {
   const [step, setStep] = useState(1);
@@ -38,11 +39,6 @@ const Blog = (props) => {
               article={articles[2]}
               isMain={isMain}
               openArticle={() => setStep(4)}
-            />
-            <BlogCard
-              article={articles[3]}
-              isMain={isMain}
-              openArticle={() => setStep(5)}
             />
           </div>
         </div>
@@ -126,7 +122,7 @@ const Blog = (props) => {
                 title="Contemplative Reptile"
               />
               <CardContent>
-                <Article02 />
+                <Article03 />
               </CardContent>
             </Card>
           </div>
@@ -181,7 +177,6 @@ const Blog = (props) => {
             <BlogCard article={articles[0]} />
             <BlogCard article={articles[1]} />
             <BlogCard article={articles[2]} />
-            <BlogCard article={articles[3]} />
           </div>
         </div>
       );
