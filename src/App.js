@@ -11,6 +11,9 @@ import WhoWeAre from "./components/WhoWeAre";
 import SignUp from "./components/Register";
 import LogIn from "./components/Login";
 import DepositInfo from "./components/FormComponents/DepositInfo";
+import ReactGA from "react-ga";
+
+ReactGA.initialize("G-M8Q10YKP8E", []);
 
 const App = () => {
   const [loggedStatus, setLoggedStatus] = useState("NOT_LOGGED_IN");
@@ -26,6 +29,7 @@ const App = () => {
 
   useEffect(() => {
     checkLoginStatus();
+    ReactGA.pageview(window.location.pathname);
   }, []);
 
   const handleLogout = () => {

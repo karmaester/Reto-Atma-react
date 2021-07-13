@@ -6,7 +6,7 @@ import Paypal from "../payment/Paypal";
 
 const Success = ({ name, action }) => {
   return (
-    <div className="rounded m-success mt-form">
+    <div className="rounded m-success center">
       {action === "appointment" ? (
         <>
           <DoneOutlineIcon className="success-icon" />
@@ -21,12 +21,18 @@ const Success = ({ name, action }) => {
           <p className="success-message">
             Gracias {name}, ha solicitado acceso al curso Alimentación Sana.
           </p>
-          <Link to="/transferencia">Transferencia bancaria</Link>
           <br />
           <p className="success-message">
-            Serás contactad@ en la mayor brevedad posible con el acceso al
-            curso.
+            Luego de realizar su pago, validaremos los datos y serás contactad@
+            en la mayor brevedad posible con el acceso al curso.
           </p>
+          <p className="success-message">
+            Para solicitar los datos de cuenta para transferencia bancaria, haz
+            click en el siguiente enlace:
+          </p>
+          <Link to="/transferencia">Transferencia bancaria</Link>
+          <p className="success-message">O utiliza los links de pago</p>
+          <p className="success-message">Pesos chilenos:</p>
           <form
             name="rec87082131_btn1"
             method="post"
@@ -43,6 +49,7 @@ const Success = ({ name, action }) => {
               value="Boton 1"
             />
           </form>
+          <p className="success-message">Pago en dólares:</p>
           <Paypal />
         </>
       )}

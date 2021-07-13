@@ -32,7 +32,7 @@ export default function Paypal() {
   }, []);
 
   return (
-    <div className="paypal-container">
+    <div className="paypal-container center">
       <div ref={paypal}></div>
     </div>
   );

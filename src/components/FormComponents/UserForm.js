@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import FormUserDetails from "./FormUserDetails";
 import Confirm from "./Confirm";
 import Success from "./Success";
 import { MuiThemeProvider } from "@material-ui/core/styles";
@@ -23,7 +22,7 @@ const UserForm = (props) => {
       return (
         <MuiThemeProvider>
           <>
-            <div className="rounded mt-form">
+            <div className="rounded">
               <h3>Por favor ingrese sus datos y oprima el boton "Guardar".</h3>
               <ValidatorForm className="center">
                 <TextField
