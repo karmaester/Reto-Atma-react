@@ -2,6 +2,7 @@ import React from "react";
 import DoneOutlineIcon from "@material-ui/icons/DoneOutline";
 import InfoIcon from "@material-ui/icons/Info";
 import { Link } from "react-router-dom";
+import Paypal from "../payment/Paypal";
 
 const Success = ({ name, action }) => {
   return (
@@ -26,7 +27,6 @@ const Success = ({ name, action }) => {
             Serás contactad@ en la mayor brevedad posible con el acceso al
             curso.
           </p>
-          <a href="http://">paypal</a>
           <form
             name="rec87082131_btn1"
             method="post"
@@ -43,6 +43,7 @@ const Success = ({ name, action }) => {
               value="Boton 1"
             />
           </form>
+          <Paypal />
         </>
       )}
     </div>
