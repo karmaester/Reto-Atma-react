@@ -11,10 +11,10 @@ export default function Paypal() {
             intent: "CAPTURE",
             purchase_units: [
               {
-                description: "Cool looking table",
+                description: "Curso 5 pilares",
                 amount: {
                   currency_code: "USD",
-                  value: 650,
+                  value: 20,
                 },
               },
             ],
