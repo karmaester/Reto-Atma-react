@@ -8,14 +8,20 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 645,
     background: "rgba(0,0,0,0.5)",
     margin: "20px",
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: 325,
+    },
   },
   media: {
     height: 440,
+    [theme.breakpoints.down("sm")]: {
+      height: 325,
+    },
   },
   title: {
     fontFamily: "Nunito",
@@ -31,7 +37,7 @@ const useStyles = makeStyles({
   action: {
     color: "rgb(250, 221, 92)",
   },
-});
+}));
 
 export default function ImgMediaCard({ article, openArticle, isMain }) {
   const classes = useStyles();
@@ -68,9 +74,9 @@ export default function ImgMediaCard({ article, openArticle, isMain }) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" className={classes.action}>
+        {/* <Button size="small" className={classes.action}>
           Compartir
-        </Button>
+        </Button> */}
         {isMain ? (
           <Button size="small" className={classes.action} onClick={openArticle}>
             Ver articulo completo

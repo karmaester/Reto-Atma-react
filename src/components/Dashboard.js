@@ -73,7 +73,7 @@ const Dashboard = (props) => {
                 </MenuItem>
                 <MenuItem onClick={() => setMenu(2)}>Ventas de curso</MenuItem>
                 <MenuItem onClick={() => setMenu(3)}>Usuarios</MenuItem>
-                <MenuItem onClick={() => setMenu(4)}>Analíticas</MenuItem>
+                <MenuItem onClick={() => setMenu(4)}>Intentos de pago</MenuItem>
               </MenuList>
             </Paper>
           </div>

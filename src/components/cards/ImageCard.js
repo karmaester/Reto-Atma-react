@@ -16,13 +16,13 @@ const useStyles = makeStyles((theme) => ({
     background: "rgba(0,0,0,0.5)",
     margin: "20px",
     [theme.breakpoints.down("sm")]: {
-      maxWidth: 445,
+      maxWidth: 325,
     },
   },
   media: {
     height: 720,
     [theme.breakpoints.down("sm")]: {
-      height: 620,
+      height: 480,
     },
   },
   title: {

@@ -22,7 +22,7 @@ const UserForm = (props) => {
       return (
         <MuiThemeProvider>
           <>
-            <div className="rounded">
+            <div className="rounded mb-5">
               <h3>Por favor ingrese sus datos y oprima el boton "Guardar".</h3>
               <ValidatorForm className="center">
                 <TextField

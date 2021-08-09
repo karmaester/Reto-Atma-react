@@ -5,16 +5,22 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 545,
     background: "rgba(255, 255, 255, 0.46)",
     margin: "20px",
     borderRadius: "33px",
     boxShadow: "0 8px 6px -6px black",
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: 325,
+    },
   },
   media: {
     height: 700,
+    [theme.breakpoints.down("sm")]: {
+      height: 425,
+    },
   },
   title: {
     fontFamily: "Nunito",
@@ -29,7 +35,7 @@ const useStyles = makeStyles({
     color: "#000",
     textAlign: "center",
   },
-});
+}));
 
 export default function DescriptionCard({ article }) {
   const classes = useStyles();

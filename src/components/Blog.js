@@ -24,7 +24,7 @@ const Blog = (props) => {
         <div className={classes.root}>
           <CssBaseline />
           <Header {...props} />
-          <div className={"blog-spacer m-0 column"}>
+          <div className={"blog-spacer pt column"}>
             <BlogCard
               article={articles[0]}
               isMain={isMain}
