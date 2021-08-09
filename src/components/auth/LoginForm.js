@@ -12,6 +12,7 @@ const Login = ({ handelSuccessfulAuth }) => {
   // const [loginErrors, setloginErrors] = useState("");
 
   const handleSubmit = (event) => {
+    console.log("loading");
     axios
       .post(
         "https://tim-bunnyhug-56158.herokuapp.com/sessions",
@@ -27,10 +28,12 @@ const Login = ({ handelSuccessfulAuth }) => {
       )
       .then((response) => {
         if (response.data.logged_in) {
+          console.log("stop loading");
           handelSuccessfulAuth(response.data);
         }
       })
       .catch((err) => {
+        console.log("stop loading - error");
         console.log("login error", err);
       });
     event.preventDefault();

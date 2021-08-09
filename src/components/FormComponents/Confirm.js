@@ -3,14 +3,19 @@ import axios from "axios";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { List, ListItem, ListItemText } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
+import ReactLoading from "react-loading";
+import { useState } from "react";
 
 const Confirm = ({ nextStep, prevStep, values, action }) => {
+  const [loading, setLoading] = useState(undefined);
+
   const setType =
     action === "appointment"
       ? "Solicitud de cita médica"
       : "Solicitud de curso";
 
   const handleSubmit = (event) => {
+    setLoading(true);
     axios
       .post("https://tim-bunnyhug-56158.herokuapp.com/requests", {
         request: {
@@ -24,7 +29,10 @@ const Confirm = ({ nextStep, prevStep, values, action }) => {
       })
       .then((response) => {
         if (response.data.status === "created") {
-          nextStep();
+          setTimeout(() => {
+            setLoading(false);
+            nextStep();
+          }, 2000);
           console.log(response.data);
         }
       })
@@ -42,6 +50,11 @@ const Confirm = ({ nextStep, prevStep, values, action }) => {
   const buttonText =
     action === "appointment" ? "Solicitar cita" : "Inscripción";
 
+  if (loading === true) {
+    return (
+      <ReactLoading type={"bars"} color={"#fcad03"} height={100} width={100} />
+    );
+  }
   return (
     <MuiThemeProvider>
       <>
