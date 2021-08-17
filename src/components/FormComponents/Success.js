@@ -6,7 +6,7 @@ import Paypal from "../payment/Paypal";
 
 const Success = ({ name, action }) => {
   return (
-    <div className="rounded m-success center">
+    <div className="rounded m-success mt-7 center">
       {action === "appointment" ? (
         <>
           <DoneOutlineIcon className="success-icon" />
